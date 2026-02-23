@@ -13,6 +13,12 @@ html {
   box-sizing: border-box;
   transition: 0.5s ease;
   scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+#root {
+  overflow-x: hidden;
+  width: 100%;
 }
 
 @media screen and (max-width: 480px) {
