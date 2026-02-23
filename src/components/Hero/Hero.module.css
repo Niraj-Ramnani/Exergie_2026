@@ -184,7 +184,7 @@
   }
 
   .heading {
-    font-size: 6rem;
+    font-size: 7rem;
     background-size: 300% auto;
     text-align: center;
     width: 100%;
@@ -192,14 +192,14 @@
   }
 
   .caption {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     text-align: center;
     padding: 0 1rem;
     width: 100%;
   }
 
   .date {
-    font-size: 1.8rem;
+    font-size: 2.2rem;
     text-align: center;
     width: 100%;
     display: block;

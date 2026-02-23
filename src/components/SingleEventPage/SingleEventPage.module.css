@@ -46,26 +46,29 @@
   position: absolute;
   top: 20px;
   right: 20px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.3);
   color: #fff;
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   cursor: pointer;
   z-index: 10;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6), inset 0 0 10px rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   transition: all 0.3s ease;
 }
 
 .closeBtn:hover {
   background: rgba(253, 79, 139, 0.8);
   border-color: #fd4f8b;
-  transform: rotate(90deg) scale(1.1);
-  box-shadow: 0 0 15px rgba(253, 79, 139, 0.5);
+  transform: rotate(90deg) scale(1.15);
+  box-shadow: 0 10px 25px rgba(253, 79, 139, 0.6);
 }
 
 .col1 {
