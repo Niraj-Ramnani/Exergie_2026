@@ -1,0 +1,110 @@
+import React, { useEffect, useState, useRef } from "react";
+import { Route, Routes, useLocation } from "react-router-dom";
+// import Button from "./components/common/Button/Button";
+import Navbar from "../src/components/Navbar/Navbar";
+import Footer from "../src/components/Footer/Footer";
+import Hidden from "../src/components/Hidden/Hidden";
+import MainEvents from "./components/MainEvents/MainEvents";
+// import Faq from "../src/components/Faq/Faq";
+import Homepage from "./pages/Homepage";
+import SingleEventPage from "./components/SingleEventPage/SingleEventPage";
+import AboutPage from "./pages/AboutPage";
+import Register from "./components/common/Register/Register";
+import ContactUs from "./components/ContactUs/ContactUs";
+import Loading from "./components/common/Loading/Loading";
+import Popup from "./components/common/Popup/Popup";
+// import SwupOverlayTheme from "@swup/overlay-theme";
+// import Swup from "swup";
+/* Google Analytics */
+import ReactGA from "react-ga";
+const TRACKING_ID = "UA-257375779-1"; // OUR_TRACKING_ID
+ReactGA.initialize(TRACKING_ID);
+
+const App = () => {
+  // const swup = new Swup({
+  //   plugins: [
+  //     new SwupOverlayTheme({
+  //       color: "#2D2E82",
+  //       duration: 500,
+  //       direction: "to-right",
+  //     }),
+  //   ],
+  // });
+  const location = useLocation();
+  const prevPathRef = useRef(location.pathname);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 3900);
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    const prevPath = prevPathRef.current;
+    const currPath = location.pathname;
+    prevPathRef.current = currPath;
+
+    // Detect if we are transitioning between the homepage and an event modal
+    const isOpeningModal = prevPath === "/" && currPath.startsWith("/events/") && currPath !== "/events";
+    const isClosingModal = prevPath.startsWith("/events/") && prevPath !== "/events" && (currPath === "/" || currPath === "/events");
+
+    // Do not scroll if we are just opening or closing the event modal overlay
+    if (!isOpeningModal && !isClosingModal) {
+      if (location.hash) {
+        setTimeout(() => {
+          const id = location.hash.replace("#", "");
+          const element = document.getElementById(id);
+          if (element) {
+            const yOffset = -80; // offset for nav bar
+            const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+            window.scrollTo({ top: y, behavior: "smooth" });
+          }
+        }, 100);
+      } else {
+        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+      }
+    }
+  }, [location]);
+
+  return (
+    <>
+      {loading ? (
+        <Loading />
+      ) : (
+        <>
+          {/* <div
+        // id={swup}
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          flexDirection: "column",
+          width: "100%",
+          height: "auto",
+        }}
+      > */}
+          <Popup />
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Homepage />} />
+            <Route path="/events" element={<MainEvents />} />
+            <Route path="/events/:eventId" element={<Homepage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/contact" element={<ContactUs />} />
+            <Route path="/hidden" element={<Hidden />} />
+            {/*   <Route path="/leaderboard/:eventId" element={<Leaderboard />} />
+          <Route path="*" element={<NotFound />}></Route> */}
+            {/* <Route path="/" element={<Landing />}></Route>  */}
+            {/* <Route path="/" element={<Faq />}></Route>  */}
+          </Routes>
+          <Footer />
+          {/* <Button /> */}
+          {/* </div> */}
+        </>
+      )}
+    </>
+  );
+};
+
+export default App;
