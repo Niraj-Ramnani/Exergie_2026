@@ -3,18 +3,12 @@ import sambhavLogo from "../../assets/Logo.svg";
 
 import classes from "./Footer.module.css";
 
-const sambhavinsta = "https://www.instagram.com/aryacollege/";
-const sambhavlinkedin = "https://in.linkedin.com/school/aryacollege/";
 // const sambhavitwitter=''
 
 const grabbitinsta = "https://www.instagram.com/aryacollege/";
 const grabbitlinkedin = "https://in.linkedin.com/school/aryacollege/";
 // const grabbittwitter = "#";
 const grabbitwebsite = "#";
-
-const spiderurl = "#";
-const saurabh = "#";
-const sanyog = "#";
 
 const grabbiturl = "#";
 const Footer = () => {

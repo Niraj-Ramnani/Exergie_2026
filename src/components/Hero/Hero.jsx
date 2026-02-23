@@ -2,7 +2,6 @@ import React from "react";
 import classes from "./Hero.module.css";
 import { Link as ScrollLink } from "react-scroll";
 import Button from "../common/Button/Button";
-import logo from "../../assets/Logo.svg"
 
 const Hero = () => {
   // const [countDays, setDays] = useState(false);

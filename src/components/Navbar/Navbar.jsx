@@ -9,7 +9,6 @@ import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 import { HashLink as Link } from "react-router-hash-link";
 // import Dropdown from "./Dropdown";
-import { HashLink } from "react-router-hash-link";
 import Logo from "../../assets/Logo.svg";
 import GrabBitBtn from "../common/GrabBitBtn/GrabBitBtn";
 

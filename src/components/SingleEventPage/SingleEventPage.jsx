@@ -36,7 +36,6 @@ const SingleEventPage = () => {
     image,
     description,
     rules,
-    note,
     prizes,
     team,
     fees,

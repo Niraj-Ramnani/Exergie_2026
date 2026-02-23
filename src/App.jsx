@@ -7,7 +7,6 @@ import Hidden from "../src/components/Hidden/Hidden";
 import MainEvents from "./components/MainEvents/MainEvents";
 // import Faq from "../src/components/Faq/Faq";
 import Homepage from "./pages/Homepage";
-import SingleEventPage from "./components/SingleEventPage/SingleEventPage";
 import AboutPage from "./pages/AboutPage";
 import Register from "./components/common/Register/Register";
 import ContactUs from "./components/ContactUs/ContactUs";
