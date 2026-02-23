@@ -10,7 +10,7 @@ const About = () => {
         <div className={classes.about}>
           <div className={classes.details}>
             <h3 className={classes.heading}>About</h3>
-            <h2 className={classes.heading1}>  EXERGIE- 2026</h2>
+            <h2 className={classes.heading1}>EXERGIE- 2026</h2>
             <p className={classes.para}>
               EXERGIE'26 is a technical festival offering a diverse range of events
               and competitions focused on technology and innovation. It provides
