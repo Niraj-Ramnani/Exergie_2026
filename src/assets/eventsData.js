@@ -46,6 +46,7 @@ export const eventsData = [
     date: "13 to 14 March, 11:00 AM to 3:00 PM",
     note: [""],
     link: "https://forms.gle/J8MUEvjCMTGM6tEK9",
+    rulebookLink: "/dummy-rulebook.pdf",
   },
   {
     id: 2,

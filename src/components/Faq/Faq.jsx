@@ -8,11 +8,11 @@ const questions = [
   },
   {
     question: "When and where is Exergie 2026 happening?",
-    answer: "The fest spans 3 action-packed days: March 13th to March 15th, 2026, hosted at Arya College of Engineering and IT campus."
+    answer: "The fest spans 3 action-packed days: March 13th to March 15th, 2026, hosted at Arya College of Engineering and IT campus (Arya 1st Old Campus, Estd Yr 2000), SP-42, RIICO Industrial Area, Kukas, Delhi Road, Near Hotel Le-Meridian, Jaipur, Rajasthan."
   },
   {
     question: "Who can participate in the events?",
-    answer: "Events are open to all college students. Some events are individual while others like Campus Combact League and Robo Soccer require teams."
+    answer: "As an inter-college event, EXERGIE 2026 is open to all students from any college or university. Some events are individual while others like Campus Combact League and Robo Soccer require teams."
   },
   {
     question: "How do I register for events like Cipher Premier League or Gyration?",

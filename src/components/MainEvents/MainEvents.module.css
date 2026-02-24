@@ -6,10 +6,10 @@
 
 .heading {
   text-align: center;
-  font-size: 6vw;
+  font-size: 8vw;
   color: #fff;
-  /* background-clip: text; */
-  /* background-image: linear-gradient(to bottom right, #ff00ee, #ff0932); */
+  font-weight: 700;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
 }
 
 .events_container {

@@ -146,6 +146,13 @@ const Navbar = () => {
         </div>
 
         <div className={`${!mobile ? classes.none : classes.mobileBox}`}>
+          <div className={classes.closeIconContainer} onClick={() => setMobile(false)}>
+            <FontAwesomeIcon
+              icon={faXmark}
+              style={{ color: "white" }}
+              size="2x"
+            />
+          </div>
           <a
             target="_blank"
             rel="noopener noreferrer"

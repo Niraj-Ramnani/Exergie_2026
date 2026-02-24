@@ -25,19 +25,22 @@
 }
 
 .heading {
-  font-size: 4rem;
-  font-weight: 400;
+  font-size: 5rem;
+  font-weight: 500;
   margin-bottom: 0;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
 .heading1 {
-  font-size: 10rem;
+  font-size: 12rem;
   text-transform: uppercase;
   color: transparent;
-  font-weight: 700;
+  font-weight: 800;
   white-space: nowrap;
-  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-width: 2px;
   -webkit-text-stroke-color: #fff;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.2));
 }
 
 @media screen and (max-width: 480px) {
@@ -46,7 +49,7 @@
   }
 
   .heading1 {
-    font-size: 4.5rem;
+    font-size: 5.5rem;
     margin-bottom: 2.5rem;
     white-space: normal;
     word-break: break-word;
@@ -54,9 +57,9 @@
 }
 
 .para {
-  font-size: 1.5rem;
-  line-height: 2.5rem;
-  opacity: 90%;
+  font-size: 1.8rem;
+  line-height: 3rem;
+  opacity: 95%;
 }
 
 .para:not(:last-child) {
@@ -83,7 +86,7 @@
   }
 
   .heading1 {
-    font-size: 6.5rem;
+    font-size: 7.5rem;
   }
 }
 

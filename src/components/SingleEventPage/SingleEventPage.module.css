@@ -75,6 +75,7 @@
   width: 40%;
   padding: 30px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   background: rgba(0, 0, 0, 0.2);
@@ -93,6 +94,36 @@
   height: auto;
   display: block;
   object-fit: cover;
+}
+
+.rulebookBtnContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.downloadBtn {
+  background: linear-gradient(90deg, #0263ad, #fd4f8b);
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.6rem;
+  font-weight: 700;
+  padding: 12px 24px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-align: center;
+  width: 100%;
+  max-width: 250px;
+  cursor: pointer;
+}
+
+.downloadBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(253, 79, 139, 0.5);
 }
 
 .col2 {

@@ -45,6 +45,7 @@ const SingleEventPage = () => {
     link,
     onSpot,
     disqualification,
+    rulebookLink, // Destructuring rulebookLink
   } = requiredEvent;
 
   return (
@@ -59,6 +60,20 @@ const SingleEventPage = () => {
           <div className={classes.posterWrapper}>
             <img className={classes.eventPoster} src={image} alt={name} />
           </div>
+          {/* Rulebook Download Button */}
+          {rulebookLink && (
+            <div className={classes.rulebookBtnContainer}>
+              <a
+                href={rulebookLink}
+                download
+                target="_blank"
+                rel="noreferrer noopener"
+                className={classes.downloadBtn}
+              >
+                Download Rule Book
+              </a>
+            </div>
+          )}
         </div>
 
         <div className={classes.col2}>
@@ -71,7 +86,7 @@ const SingleEventPage = () => {
 
           <div className={classes.rowcol}>
             <div className={classes.sectionWrap}>
-              <h2 className={classes.heading}>Team</h2>
+              <h2 className={classes.heading}>Team/Individual</h2>
               <p className={classes.content}>{team}</p>
             </div>
             <div className={classes.sectionWrap}>
