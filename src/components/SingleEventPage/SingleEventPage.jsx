@@ -4,11 +4,13 @@ import Button from "../common/Button/Button";
 import { useParams, useNavigate } from "react-router-dom";
 import { eventsData } from "../../assets/eventsData";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faXmark, faCartPlus } from "@fortawesome/free-solid-svg-icons";
+import { useCart } from "../../context/CartContext";
 
 const SingleEventPage = () => {
   const { eventId } = useParams();
   const navigate = useNavigate();
+  const { addToCart, isItemInCart } = useCart();
 
   useEffect(() => {
     // Lock background scrolling when modal opens
@@ -37,8 +39,10 @@ const SingleEventPage = () => {
     description,
     rules,
     prizes,
-    team,
-    fees,
+    type,
+    minMembers,
+    maxMembers,
+    price,
     contactInfo,
     location,
     date,
@@ -81,17 +85,19 @@ const SingleEventPage = () => {
 
           <div className={classes.sectionWrap}>
             <h2 className={classes.heading}>Description</h2>
-            <p className={classes.content}>{description}</p>
+            <p className={`${classes.content} ${classes.descContent}`}>{description}</p>
           </div>
 
           <div className={classes.rowcol}>
             <div className={classes.sectionWrap}>
               <h2 className={classes.heading}>Team/Individual</h2>
-              <p className={classes.content}>{team}</p>
+              <p className={classes.content}>
+                {type === 'team_fixed' ? `Team (${minMembers}-${maxMembers} members)` : 'Individual'}
+              </p>
             </div>
             <div className={classes.sectionWrap}>
               <h2 className={classes.heading}>Fees</h2>
-              <p className={classes.content}>{fees}</p>
+              <p className={classes.content}>{price === 0 ? 'Free' : `₹${price}`}</p>
             </div>
           </div>
 
@@ -112,17 +118,6 @@ const SingleEventPage = () => {
               <ul className={classes.list}>
                 {prizes?.map((prize, i) => (
                   <li key={i} className={classes.content}>{prize}</li>
-                ))}
-              </ul>
-            </div>
-          )}
-
-          {rules && (
-            <div className={classes.sectionWrap}>
-              <h2 className={classes.heading}>Rules and Regulations</h2>
-              <ul className={classes.list}>
-                {rules?.map((rule, i) => (
-                  <li key={i} className={classes.content}>{rule}</li>
                 ))}
               </ul>
             </div>
@@ -152,7 +147,14 @@ const SingleEventPage = () => {
 
           <div className={classes.actionFooter}>
             {link !== "" ? (
-              <Button hrefLink={link} label="Register Now" />
+              <button
+                className={`${classes.addToCartBtn} ${isItemInCart(+eventId) ? classes.inCartBtn : ''}`}
+                onClick={() => !isItemInCart(+eventId) && addToCart(requiredEvent)}
+                disabled={isItemInCart(+eventId)}
+              >
+                <FontAwesomeIcon icon={faCartPlus} className={classes.cartIcon} />
+                {isItemInCart(+eventId) ? "Added to Cart" : "Add to Cart"}
+              </button>
             ) : onSpot !== "" ? (
               <p className={classes.soon}>Registration will be taken on spot!</p>
             ) : (

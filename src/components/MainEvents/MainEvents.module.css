@@ -34,3 +34,74 @@
     padding: 0;
   }
 }
+
+.cipher_section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px auto 60px;
+  width: 100%;
+}
+
+.cipher_main_heading {
+  font-size: 4rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, #fd4f8b, #7b61ff, #4d8aff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 5px 20px rgba(123, 97, 255, 0.4));
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.2;
+}
+
+.mini_heading {
+  font-size: 2.2rem;
+  color: #fff;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.mini_events_container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  gap: 50px;
+}
+
+.mini_card_wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+  .cipher_section {
+    padding: 30px 15px;
+    margin-bottom: 50px;
+  }
+
+  .cipher_main_heading {
+    font-size: 2.5rem;
+  }
+
+  .mini_card {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .mini_card_wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}

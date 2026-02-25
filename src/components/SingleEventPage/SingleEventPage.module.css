@@ -195,11 +195,19 @@
 }
 
 .content {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: 500;
   line-height: 1.7;
   color: rgba(255, 255, 255, 0.95);
   letter-spacing: 0.5px;
+}
+
+.descContent {
+  font-size: 1.8rem;
+  line-height: 1.8;
+  color: #fff;
+  letter-spacing: 0.8px;
+  font-weight: 500;
 }
 
 .list {

@@ -131,17 +131,17 @@
 }
 
 .leadCard {
-  background: rgba(15, 15, 20, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(15, 18, 30, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-radius: 16px;
-  padding: 2.5rem 1.5rem;
+  border-radius: 20px;
+  padding: 3rem 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   transition: all 0.3s ease;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .leadCard:hover {
@@ -151,12 +151,13 @@
 }
 
 .imgContainer {
-  width: 120px;
-  height: 120px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
-  padding: 4px;
+  padding: 5px;
   background: linear-gradient(135deg, #0263ad, #fd4f8b);
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 24px rgba(2, 99, 173, 0.3);
 }
 
 .leadImg {
@@ -168,29 +169,31 @@
 }
 
 .leadName {
-  font-size: 2.2rem;
+  font-size: 2.4rem;
   font-weight: 700;
   color: #fff;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.6rem;
   text-align: center;
+  letter-spacing: 0.5px;
 }
 
 .leadDesignation {
-  font-size: 1.4rem;
-  color: rgba(255, 255, 255, 0.8);
-  margin-bottom: 1.2rem;
+  font-size: 1.5rem;
+  color: #a88bff;
+  margin-bottom: 1.5rem;
   text-align: center;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  font-weight: 500;
+  letter-spacing: 1.5px;
+  font-weight: 600;
 }
 
 .leadPhone {
-  font-size: 1.5rem;
-  color: #0263ad;
+  font-size: 1.7rem;
+  color: #4d8aff;
   text-decoration: none;
   font-weight: 600;
   transition: color 0.3s ease;
+  letter-spacing: 0.5px;
 }
 
 .leadPhone:hover {

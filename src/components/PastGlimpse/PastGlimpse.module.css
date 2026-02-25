@@ -20,24 +20,72 @@
     text-transform: uppercase;
 }
 
+.sliderWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 50px;
+    /* space for arrows */
+}
+
+.arrowBtn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 20;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.arrowBtn:hover {
+    background: rgba(253, 79, 139, 0.6);
+    border-color: #fd4f8b;
+    box-shadow: 0 0 15px rgba(253, 79, 139, 0.4);
+}
+
+.arrowBtn:active {
+    transform: translateY(-50%) scale(0.9);
+}
+
+.leftArrow {
+    left: 10px;
+}
+
+.rightArrow {
+    right: 10px;
+}
+
 .sliderContainer {
     width: 100%;
-    overflow: hidden;
+    overflow-x: auto;
+    scroll-behavior: auto;
+    display: flex;
     position: relative;
     padding: 1rem 0;
     /* Add subtle blur on the left and right edges for a fade-in/fade-out effect */
-    mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.sliderContainer::-webkit-scrollbar {
+    display: none;
 }
 
 .sliderTrack {
     display: flex;
     width: max-content;
-    animation: scroll 25s linear infinite;
-}
-
-.sliderTrack:hover {
-    animation-play-state: paused;
 }
 
 .slide {
@@ -86,15 +134,7 @@
     opacity: 1;
 }
 
-@keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
 
-    100% {
-        transform: translateX(-50%);
-    }
-}
 
 @media screen and (max-width: 768px) {
     .slide {

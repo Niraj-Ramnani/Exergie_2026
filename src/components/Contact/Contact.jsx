@@ -1,31 +1,34 @@
 import Faq from "../Faq/Faq";
 import classes from "./Contact.module.css";
-import profileImg from "../../assets/contactinfo/profile.png";
+import taranginiImg from "../../assets/contacts/tarangini.png";
+import prerakImg from "../../assets/contacts/prerak.jpeg";
+import narendraImg from "../../assets/contacts/narendra.jpeg";
+import meghaImg from "../../assets/contacts/megha.jpeg";
 
 const leads = [
   {
-    name: "John Doe",
-    designation: "President",
-    phone: "+91 9876543210",
-    image: profileImg,
+    name: "Tarangini Pahal",
+    designation: "Dance Club",
+    phone: "+91 9306905853",
+    image: taranginiImg,
   },
   {
-    name: "Jane Smith",
-    designation: "Vice President",
-    phone: "+91 9876543211",
-    image: profileImg,
+    name: "Prerak Sharma",
+    designation: "Art & Craft Club",
+    phone: "+91 6376232585",
+    image: prerakImg,
   },
   {
-    name: "Alex Johnson",
-    designation: "Event Head",
-    phone: "+91 9876543212",
-    image: profileImg,
+    name: "Narendra Singh",
+    designation: "Robotics Club",
+    phone: "+91 6375103597",
+    image: narendraImg,
   },
   {
-    name: "Sarah Williams",
-    designation: "Technical Lead",
-    phone: "+91 9876543213",
-    image: profileImg,
+    name: "Megha Panwar",
+    designation: "Literature Club",
+    phone: "+91 7296800189",
+    image: meghaImg,
   },
 ];
 

@@ -11,6 +11,8 @@ import AboutPage from "./pages/AboutPage";
 import Register from "./components/common/Register/Register";
 import ContactUs from "./components/ContactUs/ContactUs";
 import Loading from "./components/common/Loading/Loading";
+import FloatingCartButton from "./components/common/Cart/FloatingCartButton";
+import CartDrawer from "./components/common/Cart/CartDrawer";
 // import SwupOverlayTheme from "@swup/overlay-theme";
 // import Swup from "swup";
 /* Google Analytics */
@@ -31,6 +33,11 @@ const App = () => {
   const location = useLocation();
   const prevPathRef = useRef(location.pathname);
   const [loading, setLoading] = useState(true);
+  const [isCartOpen, setIsCartOpen] = useState(false);
+
+  const toggleCartDrawer = () => {
+    setIsCartOpen(prev => !prev);
+  };
 
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 3900);
@@ -96,6 +103,8 @@ const App = () => {
             {/* <Route path="/" element={<Faq />}></Route>  */}
           </Routes>
           <Footer />
+          <FloatingCartButton toggleDrawer={toggleCartDrawer} />
+          <CartDrawer isOpen={isCartOpen} toggleDrawer={toggleCartDrawer} />
           {/* <Button /> */}
           {/* </div> */}
         </>

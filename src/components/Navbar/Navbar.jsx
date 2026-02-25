@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 import classes from "./Navbar.module.css";
 
 import { FiMenu } from "react-icons/fi";
@@ -9,7 +10,7 @@ import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 import { HashLink as Link } from "react-router-hash-link";
 // import Dropdown from "./Dropdown";
-import Logo from "../../assets/Logo.svg";
+import Logo from "../../assets/logo/logo.png";
 import GrabBitBtn from "../common/GrabBitBtn/GrabBitBtn";
 
 const Scroll = require("react-scroll");
@@ -23,6 +24,67 @@ const Navbar = () => {
   window.onscroll = () => {
     isScrolled(window.pageYOffset === 0 ? false : true);
     return () => (window.onscroll = null);
+  };
+
+  const location = useLocation();
+  const isHome = location.pathname === "/";
+
+  const scrollWithOffset = (el) => {
+    const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
+    const yOffset = -100;
+    window.scrollTo({ top: yCoordinate + yOffset, behavior: "smooth" });
+  };
+
+  const NavItem = ({ to, children }) => {
+    if (isHome) {
+      return (
+        <Drop
+          activeClass={classes.active}
+          className={classes.homeLink}
+          to={to}
+          spy={true}
+          smooth={true}
+          offset={-100}
+          duration={600}
+        >
+          {children}
+        </Drop>
+      );
+    }
+    return (
+      <Link to={`/#${to}`} scroll={scrollWithOffset} className={classes.homeLink}>
+        {children}
+      </Link>
+    );
+  };
+
+  const MobileNavItem = ({ to, children }) => {
+    if (isHome) {
+      return (
+        <Drop
+          onClick={() => setMobile(false)}
+          activeClass={classes.active}
+          className={classes.homeLink}
+          to={to}
+          spy={true}
+          smooth={true}
+          offset={-100}
+          duration={600}
+        >
+          {children}
+        </Drop>
+      );
+    }
+    return (
+      <Link
+        onClick={() => setMobile(false)}
+        to={`/#${to}`}
+        scroll={scrollWithOffset}
+        className={classes.homeLink}
+      >
+        {children}
+      </Link>
+    );
   };
 
   return (
@@ -48,66 +110,24 @@ const Navbar = () => {
         <div className={classes.navbox}>
           <ul className={classes.nav}>
             <li className={classes.navLink}>
-              <Drop
-                activeClass={classes.active}
-                className={classes.homeLink}
-                to="home"
-                spy={true}
-                smooth={true}
-                offset={-100}
-                duration={600}
-              >
-                Home
-              </Drop>
+              <NavItem to="home">Home</NavItem>
             </li>
             <li className={classes.navLink}>
-              <Drop
-                activeClass={classes.active}
-                className={classes.homeLink}
-                to="about"
-                spy={true}
-                smooth={true}
-                offset={-100}
-                duration={600}
-              >
-                About
-              </Drop>
+              <NavItem to="about">About</NavItem>
             </li>
             <li className={classes.navLink}>
-              <Drop
-                activeClass={classes.active}
-                className={classes.homeLink}
-                to="events"
-                spy={true}
-                smooth={true}
-                offset={-100}
-                duration={600}
-              >
+              <NavItem to="events">
                 Events
                 <FontAwesomeIcon
                   size="sm"
-                  style={{
-                    display: "inline-block",
-                    marginLeft: ".5rem",
-                  }}
+                  style={{ display: "inline-block", marginLeft: ".5rem" }}
                   icon={faArrowDown}
                   fade
                 />
-              </Drop>
+              </NavItem>
             </li>
-
             <li className={classes.navLink}>
-              <Drop
-                activeClass={classes.active}
-                className={classes.homeLink}
-                to="contact"
-                spy={true}
-                smooth={true}
-                offset={-100}
-                duration={600}
-              >
-                Contact
-              </Drop>
+              <NavItem to="contact">Contact</NavItem>
             </li>
             <li className={classes.navLink}>
               <a
@@ -168,70 +188,24 @@ const Navbar = () => {
 
           <ul className={classes.mobileNav}>
             <li>
-              <Drop
-                onClick={() => setMobile(!mobile)}
-                activeClass={classes.active}
-                className={classes.homeLink}
-                to="home"
-                spy={true}
-                smooth={true}
-                offset={-100}
-                duration={600}
-              >
-                Home
-              </Drop>
+              <MobileNavItem to="home">Home</MobileNavItem>
             </li>
             <li>
-              <Drop
-                onClick={() => setMobile(!mobile)}
-                activeClass={classes.active}
-                className={classes.homeLink}
-                to="about"
-                spy={true}
-                smooth={true}
-                offset={-100}
-                duration={600}
-              >
-                About
-              </Drop>
+              <MobileNavItem to="about">About</MobileNavItem>
             </li>
             <li>
-              <Drop
-                onClick={() => setMobile(!mobile)}
-                activeClass={classes.active}
-                className={classes.homeLink}
-                to="events"
-                spy={true}
-                smooth={true}
-                offset={-100}
-                duration={600}
-              >
+              <MobileNavItem to="events">
                 Events
                 <FontAwesomeIcon
                   size="sm"
-                  style={{
-                    display: "inline-block",
-                    marginLeft: ".5rem",
-                  }}
+                  style={{ display: "inline-block", marginLeft: ".5rem" }}
                   icon={faArrowDown}
                   fade
                 />
-              </Drop>
+              </MobileNavItem>
             </li>
-
             <li>
-              <Drop
-                onClick={() => setMobile(!mobile)}
-                activeClass={classes.active}
-                className={classes.homeLink}
-                to="contact"
-                spy={true}
-                smooth={true}
-                offset={-100}
-                duration={600}
-              >
-                Contact
-              </Drop>
+              <MobileNavItem to="contact">Contact</MobileNavItem>
             </li>
             <li>
               <a
