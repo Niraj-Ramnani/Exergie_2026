@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import classes from "./SingleEventPage.module.css";
-import Button from "../common/Button/Button";
 import { useParams, useNavigate } from "react-router-dom";
 import { eventsData } from "../../assets/eventsData";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -37,7 +36,6 @@ const SingleEventPage = () => {
     name,
     image,
     description,
-    rules,
     prizes,
     type,
     minMembers,
