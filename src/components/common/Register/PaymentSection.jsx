@@ -31,6 +31,8 @@ const PaymentSection = ({ totalAmount }) => {
                 <p className={classes.payInstruction}>Pay the exact amount shown above</p>
             </div>
 
+            <div className={classes.orDivider}>OR</div>
+
             <div className={classes.upiButtonContainer}>
                 <a
                     href={upiLink}

@@ -343,7 +343,7 @@
   gap: 12px;
   max-height: 650px;
   overflow-y: auto;
-  padding: 4px;
+  padding: 4px 4px 24px 4px;
   scrollbar-width: thin;
   scrollbar-color: rgba(123, 97, 255, 0.5) rgba(0, 0, 0, 0.2);
 }
@@ -369,11 +369,11 @@
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 12px;
   padding: 16px;
-  cursor: pointer;
+  cursor: default;
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
-  user-select: none;
+  flex-shrink: 0;
 }
 
 .eventCard::before {
@@ -392,6 +392,7 @@
   mask-composite: exclude;
   opacity: 0;
   transition: opacity 0.3s ease;
+  pointer-events: none;
 }
 
 .eventCard:hover {
@@ -477,7 +478,7 @@
   background: rgba(77, 138, 255, 0.1);
   border: 1px dashed #4d8aff;
   color: #4d8aff;
-  padding: 8px;
+  padding: 10px;
   border-radius: 8px;
   font-size: 13px;
   font-weight: 500;
@@ -722,6 +723,32 @@
   font-size: 13px;
   color: #ffab5e;
   font-weight: 500;
+}
+
+.orDivider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  margin: 10px 0;
+  color: #8c96ba;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.orDivider::before,
+.orDivider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+}
+
+.orDivider::before {
+  margin-right: .5em;
+}
+
+.orDivider::after {
+  margin-left: .5em;
 }
 
 .upiButtonContainer {

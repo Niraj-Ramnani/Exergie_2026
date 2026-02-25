@@ -60,13 +60,13 @@ const Register = () => {
 
     if (!data.email.trim()) {
       newErrors.email = 'Email is required';
-    } else if (!/\\S+@\\S+\\.\\S+/.test(data.email)) {
+    } else if (!/\S+@\S+\.\S+/.test(data.email)) {
       newErrors.email = 'Email address is invalid';
     }
 
     if (!data.mobile.trim()) {
       newErrors.mobile = 'Mobile Number is required';
-    } else if (!/^\\d{10}$/.test(data.mobile)) {
+    } else if (!/^\d{10}$/.test(data.mobile)) {
       newErrors.mobile = 'Mobile Number must be exactly 10 digits';
     }
 
@@ -99,10 +99,13 @@ const Register = () => {
   };
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name } = e.target;
+    let { value } = e.target;
 
-    if (name === 'mobile' && value !== '' && !/^\\d+$/.test(value)) return;
-    if (name === 'mobile' && value.length > 10) return;
+    if (name === 'mobile') {
+      value = value.replace(/\D/g, '');
+      if (value.length > 10) return;
+    }
 
     setFormData(prev => ({ ...prev, [name]: value }));
 
@@ -278,7 +281,7 @@ const Register = () => {
                   </div>
                   {event.type === 'team_fixed' && (
                     <p style={{ color: '#a88bff', fontSize: '0.85rem', marginTop: '4px' }}>
-                      Team Event (Min: {event.minMembers}, Max: {event.maxMembers})
+                      Total Team Size (Min: {event.minMembers}, Max: {event.maxMembers})
                     </p>
                   )}
                 </div>
@@ -310,13 +313,21 @@ const Register = () => {
                     </div>
                   ))}
 
-                  {((teamMembers[event.id]?.length || 0) + 1) < event.maxMembers && (
+                  {((teamMembers[event.id]?.length || 0) + 1) < event.maxMembers ? (
                     <button
                       type="button"
                       className={classes.addMemberBtn}
                       onClick={() => handleTeamMemberAction(event.id, 'add')}
                     >
                       + Add Member
+                    </button>
+                  ) : (
+                    <button
+                      type="button"
+                      className={`${classes.addMemberBtn} ${classes.disabledBtn}`}
+                      disabled
+                    >
+                      Maximum Members Reached
                     </button>
                   )}
 
