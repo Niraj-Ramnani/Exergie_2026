@@ -22,7 +22,8 @@ const Register = () => {
     mobile: '',
     college: '',
     year: '',
-    branch: ''
+    branch: '',
+    utr: ''
   });
 
   const [teamMembers, setTeamMembers] = useState({});
@@ -72,6 +73,7 @@ const Register = () => {
     if (!data.college.trim()) newErrors.college = 'College Name is required';
     if (!data.year.trim()) newErrors.year = 'Year is required';
     if (!data.branch.trim()) newErrors.branch = 'Branch is required';
+    if (!data.utr.trim()) newErrors.utr = 'UTR / Transaction ID is required';
 
     if (!screenshotFile && cart.length > 0) newErrors.screenshot = 'Payment screenshot is required';
 
@@ -161,6 +163,7 @@ const Register = () => {
       data.append("college", formData.college);
       data.append("year", formData.year);
       data.append("branch", formData.branch);
+      data.append("utr", formData.utr);
 
       const eventNames = cart.map(e => e.name);
       data.append("selectedEvents", JSON.stringify(eventNames));
@@ -223,7 +226,7 @@ const Register = () => {
     }
   };
 
-  const isFormValid = formData.fullName && formData.email && formData.mobile.length === 10 && formData.college && formData.year && formData.branch;
+  const isFormValid = formData.fullName && formData.email && formData.mobile.length === 10 && formData.college && formData.year && formData.branch && formData.utr;
   const canProceed = isFormValid && screenshotFile !== null;
 
   const yearOptions = [
@@ -332,6 +335,7 @@ const Register = () => {
 
         <div className={classes.divider}></div>
         <PaymentSection totalAmount={totalAmount} />
+        <InputField label="UTR / Transaction ID *" name="utr" value={formData.utr} onChange={handleChange} error={errors.utr} placeholder="Ex: 123456789012" required />
         <ImageUpload onFileSelect={handleFileSelect} file={screenshotFile} error={errors.screenshot} />
 
         {submitError && <div className={classes.eventErrorMessage}>{submitError}</div>}

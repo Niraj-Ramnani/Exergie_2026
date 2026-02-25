@@ -51,9 +51,9 @@ const Hero = () => {
           {/* <h1 className={classes.heading}>Sambhav</h1> */}
 
           {/* <img src={logo} width={400} /> */}
-          <h3 className={classes.collegeName}>Arya College of Engineering & I.T,</h3>
+          <h3 className={classes.collegeName}>Arya College of Engineering & I.T, Jaipur</h3>
           <h1 className={classes.heading}>Exergie 2026</h1>
-          <h4 className={classes.caption}>The Annual Techno • Cultural Fest</h4>
+          <h4 className={classes.caption}>Intercollege The Annual Techno • Cultural Fest</h4>
           <p className={classes.date}>13 March to 15 March</p>
           <ScrollLink
             to="events"

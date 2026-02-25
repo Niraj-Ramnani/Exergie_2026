@@ -78,7 +78,7 @@ export const eventsData = [
     date: "TBD",
     note: [""],
     link: "#",
-    rulebookLink: "/dummy-rulebook.pdf",
+    rulebookLink: "https://drive.google.com/file/d/1dk1P7D9Z7hYd34KPqI2Kwnh_0H8lGPDz/view?usp=sharing",
   },
   {
     id: 3,
@@ -96,7 +96,7 @@ export const eventsData = [
     date: "TBD",
     note: [""],
     link: "#",
-    rulebookLink: "/dummy-rulebook.pdf",
+    rulebookLink: "https://drive.google.com/file/d/1L8m9cuOwnmHEv71pWipGWrCcuWkXK6Qn/view?usp=sharing",
   },
   {
     id: 4,
@@ -172,7 +172,7 @@ export const eventsData = [
     date: "TBD",
     note: [""],
     link: "#",
-    rulebookLink: "/dummy-rulebook.pdf",
+    rulebookLink: "https://drive.google.com/file/d/1xtLg_dlRpnV2M5_fE9SydD1nHEZGoRKm/view?usp=sharing",
   },
   {
     id: 8,
@@ -215,7 +215,7 @@ export const eventsData = [
     date: "TBD",
     note: [""],
     link: "#",
-    rulebookLink: "/dummy-rulebook.pdf",
+    rulebookLink: "https://drive.google.com/file/d/1ANDsA4shDU-szIcn0ZyPB2Yxiu8FsPtO/view?usp=sharing",
   },
   {
     id: 10,
@@ -233,7 +233,7 @@ export const eventsData = [
     date: "TBD",
     note: [""],
     link: "#",
-    rulebookLink: "/dummy-rulebook.pdf",
+    rulebookLink: "https://drive.google.com/file/d/1UJ_1_OWmAsh1SO6Xje9735S5LiyMhPsV/view?usp=sharing",
   },
   {
     id: 11,
@@ -247,8 +247,8 @@ export const eventsData = [
       "Trophy to the top 3"
     ],
     type: "team_fixed",
-    minMembers: 1,
-    maxMembers: 5,
+    minMembers: 2,
+    maxMembers: 2,
     price: 100,
     contactInfo: [
       "Daud Ibrahim: 8809788959",
@@ -271,8 +271,8 @@ export const eventsData = [
       "Certifications"
     ],
     type: "team_fixed",
-    minMembers: 1,
-    maxMembers: 5,
+    minMembers: 2,
+    maxMembers: 4,
     price: 999,
     contactInfo: ["Ritik Raj Singh"],
     location: "Front lawn",
@@ -292,8 +292,8 @@ export const eventsData = [
       "Certifications"
     ],
     type: "team_fixed",
-    minMembers: 1,
-    maxMembers: 5,
+    minMembers: 2,
+    maxMembers: 6,
     price: 1499,
     contactInfo: ["Nilesh Kumar Dev: 6207448003"],
     location: "Front lawn",
@@ -354,7 +354,7 @@ export const eventsData = [
     date: "14 March",
     note: [""],
     link: "https://forms.gle/J8MUEvjCMTGM6tEK9",
-    rulebookLink: "/dummy-rulebook.pdf",
+    rulebookLink: "https://drive.google.com/file/d/1v9_8l8SXklcwwNNLJUo3Eacx-V_wpsN_/view?usp=sharing",
   },
   {
     id: 17,
@@ -370,7 +370,7 @@ export const eventsData = [
     date: "13 March",
     note: [""],
     link: "https://forms.gle/J8MUEvjCMTGM6tEK9",
-    rulebookLink: "/dummy-rulebook.pdf",
+    rulebookLink: "https://drive.google.com/file/d/1vQqG5Jex9is8GWlV_QvUTjLSq_xK9yAx/view?usp=sharing",
   },
   {
     id: 18,
@@ -386,7 +386,7 @@ export const eventsData = [
     date: "13 March",
     note: [""],
     link: "https://forms.gle/J8MUEvjCMTGM6tEK9",
-    rulebookLink: "/dummy-rulebook.pdf",
+    rulebookLink: "https://drive.google.com/file/d/1zgdjkdt7a5b9DSXpBcnd23eff_WA9lGF/view?usp=sharing",
   },
   {
     id: 19,
@@ -402,6 +402,6 @@ export const eventsData = [
     date: "14 March",
     note: [""],
     link: "https://forms.gle/J8MUEvjCMTGM6tEK9",
-    rulebookLink: "/dummy-rulebook.pdf",
+    rulebookLink: "https://drive.google.com/file/d/104ajYCfdHpg-Atn3EbHEt9A4qu74rsBQ/view?usp=sharing",
   }
 ];

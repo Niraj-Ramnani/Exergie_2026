@@ -227,6 +227,41 @@
   justify-content: center;
 }
 
+.addToCartBtn {
+  background: linear-gradient(90deg, #0263ad, #fd4f8b);
+  color: #fff;
+  border: none;
+  font-size: 1.6rem;
+  font-weight: 700;
+  padding: 12px 30px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.addToCartBtn:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(253, 79, 139, 0.5);
+}
+
+.inCartBtn {
+  background: rgba(255, 255, 255, 0.1);
+  color: #a0a0a0;
+  cursor: not-allowed;
+  box-shadow: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.cartIcon {
+  font-size: 1.8rem;
+}
+
 .soon {
   color: #fd4f8b;
   font-size: 1.2rem;

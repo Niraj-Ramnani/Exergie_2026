@@ -3,9 +3,9 @@ import classes from './Register.module.css';
 import qrCodeImage from '../../../assets/qrcode/qrcode.png';
 
 const PaymentSection = ({ totalAmount }) => {
-    const upiId = "yourupiid@okaxis"; // TO-DO: Replace with actual UPI ID
-    const eventName = "Exergie2026";
-    const upiLink = `upi://pay?pa=${upiId}&pn=${eventName}&am=${totalAmount}`;
+    const upiId = "ARYACOLLEGE@icici";
+    const eventName = "Exergie 2026";
+    const upiLink = `upi://pay?pa=${upiId}&pn=${encodeURIComponent(eventName)}&am=${totalAmount}`;
 
     return (
         <div className={classes.paymentWrapper}>

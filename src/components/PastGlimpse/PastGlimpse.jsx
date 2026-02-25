@@ -2,16 +2,14 @@ import React, { useEffect, useRef } from 'react';
 import classes from './PastGlimpse.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
-import img1 from '../../assets/pastglimpse/image1.jpg';
-import img2 from '../../assets/pastglimpse/image2.jpg';
-import img3 from '../../assets/pastglimpse/image3.jpg';
-import img4 from '../../assets/pastglimpse/image4.jpg';
-import img5 from '../../assets/pastglimpse/image5.jpg';
+
+// Dynamically import all images from the pastglimpse folder using Webpack's require.context
+const req = require.context('../../assets/pastglimpse', false, /.*\.jpe?g$/);
+const originalImages = req.keys().map(req);
 
 const PastGlimpse = () => {
-    const images = [img1, img2, img3, img4, img5];
     // Duplicate exactly the same items to create a seamless infinite loop
-    const duplicatedImages = [...images, ...images, ...images, ...images];
+    const duplicatedImages = [...originalImages, ...originalImages, ...originalImages];
 
     const scrollRef = useRef(null);
     const isPaused = useRef(false);
@@ -39,7 +37,7 @@ const PastGlimpse = () => {
     const slideLeft = () => {
         if (scrollRef.current) {
             scrollRef.current.style.scrollBehavior = "smooth";
-            scrollRef.current.scrollBy({ left: -380 }); // approximate width of one slide + margin
+            scrollRef.current.scrollBy({ left: -480 }); // approximate width of one slide (450) + margin
             setTimeout(() => {
                 if (scrollRef.current) scrollRef.current.style.scrollBehavior = "auto";
             }, 400);
@@ -49,7 +47,7 @@ const PastGlimpse = () => {
     const slideRight = () => {
         if (scrollRef.current) {
             scrollRef.current.style.scrollBehavior = "smooth";
-            scrollRef.current.scrollBy({ left: 380 });
+            scrollRef.current.scrollBy({ left: 480 });
             setTimeout(() => {
                 if (scrollRef.current) scrollRef.current.style.scrollBehavior = "auto";
             }, 400);
