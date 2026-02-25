@@ -21,7 +21,6 @@
 // import web3 from "./Events/Web3.png";
 // import SupercarShow from "./Events/SupercarShow.png";
 // import TremblingTower from "./Events/TremblingTower.png";
-import CCP from "./Events/CCP.png";
 import cipherImage from "./club posters/cipher premier league.png";
 import esportsImage from "./club posters/Arya esports club.jpeg";
 import momentGridImage from "./club posters/momentgrid.png";
