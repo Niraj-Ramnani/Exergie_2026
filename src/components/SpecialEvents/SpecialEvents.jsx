@@ -31,6 +31,7 @@ const SpecialEvents = () => {
                 </a>
 
                 {/* Projectathon 2.0 */}
+                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                 <a href="#" className={`${classes.card} ${classes.projectathonCard}`}>
                     <div className={classes.cardContent}>
                         <h3 className={classes.projectTitle}>PROJECTATHON 2.0</h3>
