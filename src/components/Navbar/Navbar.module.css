@@ -66,36 +66,49 @@
   gap: 3rem;
 }
 
-.hackLink {
+.cartLinkBtn {
   color: #fff;
-  font-weight: 700;
+  font-weight: 800;
   text-decoration: none;
   cursor: pointer;
-  transition: all 0.3s ease;
-  padding: 0.6rem 1.5rem;
-  border-radius: 20px;
-  background: linear-gradient(90deg, #0263ad, #fd4f8b);
-  box-shadow: 0 0 10px rgba(253, 79, 139, 0.3);
-  display: inline-block;
-  opacity: 0.95;
+  transition: all 0.4s ease;
+  padding: 0.9rem 2.2rem;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #7b61ff, #ff4d6d);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  font-size: 1.25rem;
+  font-family: 'Inter', sans-serif;
+  box-shadow: 0 4px 20px rgba(123, 97, 255, 0.5), 0 0 10px rgba(255, 77, 109, 0.3);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-.hackLink:hover {
-  transform: translateY(-2px) scale(1.05);
-  box-shadow: 0 5px 20px rgba(253, 79, 139, 0.6);
-  opacity: 1;
+.cartLinkBtn:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 8px 30px rgba(123, 97, 255, 0.7), 0 0 20px rgba(255, 77, 109, 0.5);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
-.hackLinkMobile {
+.cartLinkBtnMobile {
   color: #fff;
   font-weight: 700;
-  text-decoration: none;
   cursor: pointer;
-  background: linear-gradient(90deg, #0263ad, #fd4f8b);
-  padding: 0.8rem 1.5rem;
+  font-family: 'Inter', sans-serif;
+  border: none;
+  background: linear-gradient(90deg, #7b61ff, #4d8aff);
+  padding: 1rem 2rem;
   border-radius: 12px;
   display: inline-block;
+  font-size: 1.5rem;
   margin-top: 1rem;
+  box-shadow: 0 0 15px rgba(123, 97, 255, 0.4);
+}
+
+.cartLinkBtnMobile:hover {
+  background: linear-gradient(90deg, #8a73ff, #5e98ff);
 }
 
 .nav {

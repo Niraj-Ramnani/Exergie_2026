@@ -9,7 +9,7 @@ import { Toaster } from 'react-hot-toast';
 ReactDOM.render(
   <CartProvider>
     <BrowserRouter>
-      <Toaster position="top-center" />
+      <Toaster position="top-center" containerStyle={{ top: '90px', zIndex: 99999 }} />
       <App />
     </BrowserRouter>
   </CartProvider>,

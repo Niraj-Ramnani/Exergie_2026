@@ -210,6 +210,8 @@ const Register = () => {
         const registrationPayload = {
           fullName: formData.fullName,
           selectedEvents: eventNames,
+          teamMembers: teamMembersByName,
+          utr: formData.utr,
           totalAmount: totalAmount,
           registrationId: result.registrationId
         };

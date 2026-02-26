@@ -36,10 +36,10 @@ import musicManiaImage from "./club posters/musicmania.png";
 import gyrationImage from "./club posters/gyration.jpeg";
 import donDeModeImage from "./club posters/dondemode.png";
 import blindCodingImage from "./club posters/blindcoding.jpeg";
-import reverseCodingImage from "./club posters/rversecoding.jpeg";
+import reverseCodingImage from "./club posters/reversecoding.png";
 import cssBattleImage from "./club posters/cssbattle.jpeg";
 import buildWithoutCodeImage from "./club posters/buildwithoutcode.jpeg";
-import confernoImage from "./club posters/conferno.png";
+import confernoImage from "./club posters/confero.jpeg";
 import squidGameImage from "./club posters/squidgame.png";
 import buildBlitzImage from "./club posters/buildblitz.png";
 // import quiz from "./Events/quiz.png";
@@ -419,7 +419,7 @@ export const eventsData = [
       "Certifications"
     ],
     type: "individual",
-    price: 30,
+    price: 49,
     contactInfo: ["Rishi Joshi: 8441000770"],
     location: "Main Ground",
     date: "13 March, whole day",

@@ -7,11 +7,13 @@ import { FiMenu } from "react-icons/fi";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowDown } from "@fortawesome/free-solid-svg-icons";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 
 import { HashLink as Link } from "react-router-hash-link";
 // import Dropdown from "./Dropdown";
 import Logo from "../../assets/logo/logo.png";
 import GrabBitBtn from "../common/GrabBitBtn/GrabBitBtn";
+import { useCart } from "../../context/CartContext";
 
 const Scroll = require("react-scroll");
 
@@ -19,7 +21,7 @@ const Navbar = () => {
   const Drop = Scroll.Link;
   const [scrolled, isScrolled] = useState(false);
   const [mobile, setMobile] = useState(false);
-  // const [drop, setDrop] = useState(false);
+  const { cart, setIsCartOpen } = useCart();
 
   window.onscroll = () => {
     isScrolled(window.pageYOffset === 0 ? false : true);
@@ -130,14 +132,13 @@ const Navbar = () => {
               <NavItem to="contact">Contact</NavItem>
             </li>
             <li className={classes.navLink}>
-              <a
-                href="https://linktr.ee/HackAryaVerse_2.0"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={classes.hackLink}
+              <button
+                onClick={() => setIsCartOpen(true)}
+                className={classes.cartLinkBtn}
               >
-                HackAryaVerse2.0
-              </a>
+                <FontAwesomeIcon icon={faShoppingCart} style={{ marginRight: '8px' }} />
+                View Cart ({cart.length})
+              </button>
             </li>
           </ul>
 
@@ -208,14 +209,13 @@ const Navbar = () => {
               <MobileNavItem to="contact">Contact</MobileNavItem>
             </li>
             <li>
-              <a
-                href="https://linktr.ee/HackAryaVerse_2.0"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={classes.hackLinkMobile}
+              <button
+                onClick={() => { setMobile(false); setIsCartOpen(true); }}
+                className={classes.cartLinkBtnMobile}
               >
-                HackAryaVerse2.0
-              </a>
+                <FontAwesomeIcon icon={faShoppingCart} style={{ marginRight: '10px' }} />
+                View Cart ({cart.length})
+              </button>
             </li>
           </ul>
         </div>

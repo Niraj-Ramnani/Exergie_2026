@@ -11,6 +11,9 @@ export const CartProvider = ({ children }) => {
         return savedCart ? JSON.parse(savedCart) : [];
     });
 
+    // Add global state for cart drawer visibility
+    const [isCartOpen, setIsCartOpen] = useState(false);
+
     useEffect(() => {
         localStorage.setItem('exergie_cart', JSON.stringify(cart));
     }, [cart]);
@@ -20,10 +23,14 @@ export const CartProvider = ({ children }) => {
         const exists = cart.find((item) => item.id === event.id);
         if (exists) {
             toast.error(`${event.name} is already in the cart!`, {
+                duration: 4000,
                 style: {
-                    background: '#333',
+                    background: '#23253b',
                     color: '#fff',
-                    border: '1px solid rgba(255, 77, 77, 0.4)'
+                    border: '1px solid rgba(255, 77, 77, 0.4)',
+                    fontSize: '16px',
+                    padding: '16px 20px',
+                    minWidth: '300px'
                 },
                 iconTheme: {
                     primary: '#ff4d4d',
@@ -34,11 +41,15 @@ export const CartProvider = ({ children }) => {
         }
 
         setCart([...cart, event]);
-        toast.success(`${event.name} added to cart!`, {
+        toast.success(`${event.name} added! Go to cart to checkout →`, {
+            duration: 5000,
             style: {
-                background: '#333',
+                background: '#23253b',
                 color: '#fff',
-                border: '1px solid rgba(123, 97, 255, 0.4)'
+                border: '1px solid rgba(123, 97, 255, 0.4)',
+                fontSize: '16px',
+                padding: '16px 20px',
+                minWidth: '300px'
             },
             iconTheme: {
                 primary: '#7b61ff',
@@ -64,7 +75,9 @@ export const CartProvider = ({ children }) => {
         addToCart,
         removeFromCart,
         clearCart,
-        isItemInCart
+        isItemInCart,
+        isCartOpen,
+        setIsCartOpen
     };
 
     return (

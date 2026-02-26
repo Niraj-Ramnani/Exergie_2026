@@ -1,11 +1,17 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import { useCart } from '../../../context/CartContext';
 import classes from './Cart.module.css';
 
 const FloatingCartButton = ({ toggleDrawer }) => {
-    const { cart } = useCart();
+    const { cart, isCartOpen } = useCart();
+    const location = useLocation();
 
-    if (cart.length === 0) return null;
+    // Hide cart button entirely on the register/checkout page
+    if (location.pathname === '/register') return null;
+
+    // Hide if empty or if the drawer is actively open
+    if (cart.length === 0 || isCartOpen) return null;
 
     return (
         <button className={classes.floatingCartBtn} onClick={toggleDrawer}>

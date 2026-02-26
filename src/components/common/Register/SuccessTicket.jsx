@@ -1,5 +1,9 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import classes from './Register.module.css';
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
+import PrintableTicket from './PrintableTicket';
+import { eventsData } from '../../../assets/eventsData';
 
 const SuccessTicket = ({ data }) => {
     const ticketRef = useRef(null);
@@ -7,9 +11,46 @@ const SuccessTicket = ({ data }) => {
     const {
         fullName,
         selectedEvents,
+        teamMembers,
+        utr,
         totalAmount,
         registrationId
     } = data;
+
+    const [isDownloading, setIsDownloading] = useState(false);
+    const printableRef = useRef(null);
+
+    const handleDownload = async () => {
+        if (!printableRef.current) return;
+
+        try {
+            setIsDownloading(true);
+
+            // Generate canvas from the hidden printable component
+            const canvas = await html2canvas(printableRef.current, {
+                scale: 2, // High resolution
+                useCORS: true,
+                logging: false,
+                backgroundColor: '#ffffff'
+            });
+
+            const imgData = canvas.toDataURL('image/jpeg', 1.0);
+
+            // Calculate dimensions
+            const pdf = new jsPDF('p', 'mm', 'a4');
+            const pdfWidth = pdf.internal.pageSize.getWidth();
+            const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+
+            pdf.addImage(imgData, 'JPEG', 0, 0, pdfWidth, pdfHeight);
+            pdf.save(`Exergie2026_Tickets_${registrationId}.pdf`);
+
+        } catch (error) {
+            console.error("Error generating PDF:", error);
+            alert("Failed to generate PDF. Please try again.");
+        } finally {
+            setIsDownloading(false);
+        }
+    };
 
     return (
         <div className={classes.ticketContainer}>
@@ -39,11 +80,33 @@ const SuccessTicket = ({ data }) => {
                             <span className={classes.ticketLabel}>Total Paid</span>
                             <span className={classes.ticketValueHighlight}>₹{totalAmount}</span>
                         </div>
+
+                        <div className={classes.ticketSection}>
+                            <span className={classes.ticketLabel}>Transaction ID</span>
+                            <span className={classes.ticketValue} style={{ fontSize: '16px' }}>{utr}</span>
+                        </div>
                     </div>
 
-                    <div className={classes.ticketBadge}>
+                    <div className={classes.ticketBadge} style={{ marginTop: '15px' }}>
                         <span className={classes.ticketLabel}>Registration ID</span>
                         <span className={classes.ticketId}>{registrationId}</span>
+                    </div>
+
+                    <div className={classes.eventsOverviewSection}>
+                        <span className={classes.ticketLabel} style={{ marginTop: '20px', display: 'block', fontSize: '15px' }}>Events Registered ({selectedEvents.length})</span>
+                        <ul className={classes.eventListCompact}>
+                            {selectedEvents.map((eventName, i) => (
+                                <li key={i} className={classes.eventListItem}>
+                                    <strong>{eventName}</strong>
+                                    {teamMembers && teamMembers[eventName] && teamMembers[eventName].length > 0 && (
+                                        <div className={classes.teamMemberList}>
+                                            <span className={classes.teamLabel}>Team: </span>
+                                            {teamMembers[eventName].join(', ')}
+                                        </div>
+                                    )}
+                                </li>
+                            ))}
+                        </ul>
                     </div>
                 </div>
 
@@ -56,6 +119,23 @@ const SuccessTicket = ({ data }) => {
             </div>
 
             <p className={classes.ticketHelpText}>Take a screenshot of this digital ticket for your records.</p>
+
+            <button
+                onClick={handleDownload}
+                className={classes.downloadBtn}
+                disabled={isDownloading}
+            >
+                {isDownloading ? 'Generating PDF...' : 'Download All Tickets (PDF)'}
+            </button>
+
+            {/* Hidden printable component */}
+            <div style={{ position: 'absolute', top: '-9999px', left: '-9999px' }}>
+                <PrintableTicket
+                    ref={printableRef}
+                    registrationData={data}
+                    eventsList={eventsData}
+                />
+            </div>
         </div>
     );
 };

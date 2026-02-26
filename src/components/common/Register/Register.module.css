@@ -1000,6 +1000,47 @@
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
+.eventsOverviewSection {
+  margin-top: 15px;
+  background: rgba(0, 0, 0, 0.15);
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.eventListCompact {
+  list-style-type: none;
+  padding: 0;
+  margin: 10px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.eventListItem {
+  font-size: 14px;
+  color: #fff;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+  padding-bottom: 8px;
+}
+
+.eventListItem:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.teamMemberList {
+  margin-top: 4px;
+  font-size: 12px;
+  color: #c4cae0;
+  line-height: 1.4;
+}
+
+.teamLabel {
+  color: #a88bff;
+  font-weight: 500;
+}
+
 .ticketId {
   font-family: monospace;
   font-size: 18px;
@@ -1045,6 +1086,31 @@
       transparent 10px,
       transparent 12px);
   opacity: 0.6;
+}
+
+.downloadBtn {
+  margin-top: 15px;
+  background: linear-gradient(135deg, #a88bff, #4d8aff);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(77, 138, 255, 0.4);
+}
+
+.downloadBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(77, 138, 255, 0.6);
+}
+
+.downloadBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
 }
 
 .ticketHelpText {
