@@ -25,7 +25,7 @@ const About = () => {
           </div>
 
           <div className={classes.composition}>
-            <img className={classes.images} src={about} alt="about" />
+            <img className={classes.images} src={about} alt="about" loading="lazy" decoding="async" />
           </div>
         </div>
         <PastGlimpse />

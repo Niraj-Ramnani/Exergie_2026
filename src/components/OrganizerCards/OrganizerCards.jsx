@@ -31,7 +31,7 @@ const OrganizerCards = () => {
                 {clubs.map((club, i) => (
                     <div key={i} className={classes.card}>
                         <div className={classes.imgWrap}>
-                            <img src={club.img} alt={club.name} className={classes.logo} />
+                            <img src={club.img} alt={club.name} className={classes.logo} loading="lazy" decoding="async" />
                         </div>
                         <p className={classes.name}>{club.name}</p>
                     </div>

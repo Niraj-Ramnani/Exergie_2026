@@ -78,7 +78,7 @@ const PastGlimpse = () => {
                     <div className={classes.sliderTrack}>
                         {duplicatedImages.map((img, index) => (
                             <div className={classes.slide} key={`glimpse-${index}`}>
-                                <img src={img} alt={`Glimpse`} draggable="false" />
+                                <img src={img} alt={`Glimpse`} draggable="false" loading="lazy" decoding="async" />
                             </div>
                         ))}
                     </div>

@@ -3,23 +3,25 @@ import { Route, Routes, useLocation } from "react-router-dom";
 // import Button from "./components/common/Button/Button";
 import Navbar from "../src/components/Navbar/Navbar";
 import Footer from "../src/components/Footer/Footer";
-import Hidden from "../src/components/Hidden/Hidden";
-import MainEvents from "./components/MainEvents/MainEvents";
-// import Faq from "../src/components/Faq/Faq";
 import Homepage from "./pages/Homepage";
-import AboutPage from "./pages/AboutPage";
-import Register from "./components/common/Register/Register";
-import ContactUs from "./components/ContactUs/ContactUs";
 import Loading from "./components/common/Loading/Loading";
 import FloatingCartButton from "./components/common/Cart/FloatingCartButton";
 import CartDrawer from "./components/common/Cart/CartDrawer";
 import { useCart } from "./context/CartContext";
-// import SwupOverlayTheme from "@swup/overlay-theme";
-// import Swup from "swup";
+
 /* Google Analytics */
 import ReactGA from "react-ga";
 const TRACKING_ID = "UA-257375779-1"; // OUR_TRACKING_ID
 ReactGA.initialize(TRACKING_ID);
+
+// Lazy load non-critical routes for performance optimization
+const MainEvents = React.lazy(() => import("./components/MainEvents/MainEvents"));
+const AboutPage = React.lazy(() => import("./pages/AboutPage"));
+const Register = React.lazy(() => import("./components/common/Register/Register"));
+const ContactUs = React.lazy(() => import("./components/ContactUs/ContactUs"));
+const Hidden = React.lazy(() => import("../src/components/Hidden/Hidden"));
+// import SwupOverlayTheme from "@swup/overlay-theme";
+// import Swup from "swup";
 
 const App = () => {
   // const swup = new Swup({
@@ -91,19 +93,21 @@ const App = () => {
         }}
       > */}
           <Navbar />
-          <Routes>
-            <Route path="/" element={<Homepage />} />
-            <Route path="/events" element={<MainEvents />} />
-            <Route path="/events/:eventId" element={<Homepage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/contact" element={<ContactUs />} />
-            <Route path="/hidden" element={<Hidden />} />
-            {/*   <Route path="/leaderboard/:eventId" element={<Leaderboard />} />
-          <Route path="*" element={<NotFound />}></Route> */}
-            {/* <Route path="/" element={<Landing />}></Route>  */}
-            {/* <Route path="/" element={<Faq />}></Route>  */}
-          </Routes>
+          <React.Suspense fallback={<Loading />}>
+            <Routes>
+              <Route path="/" element={<Homepage />} />
+              <Route path="/events" element={<MainEvents />} />
+              <Route path="/events/:eventId" element={<Homepage />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/contact" element={<ContactUs />} />
+              <Route path="/hidden" element={<Hidden />} />
+              {/*   <Route path="/leaderboard/:eventId" element={<Leaderboard />} />
+            <Route path="*" element={<NotFound />}></Route> */}
+              {/* <Route path="/" element={<Landing />}></Route>  */}
+              {/* <Route path="/" element={<Faq />}></Route>  */}
+            </Routes>
+          </React.Suspense>
           <Footer />
           <FloatingCartButton toggleDrawer={toggleCartDrawer} />
           <CartDrawer isOpen={isCartOpen} toggleDrawer={toggleCartDrawer} />

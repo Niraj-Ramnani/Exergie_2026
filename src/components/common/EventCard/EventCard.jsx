@@ -14,6 +14,8 @@ const EventCard = ({ eventData }) => {
               className={classes.event_image}
               src={image}
               alt={name}
+              loading="lazy"
+              decoding="async"
             />
           </div>
           <h3 className={classes.event_name}>{name}</h3>

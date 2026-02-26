@@ -60,7 +60,7 @@ const SingleEventPage = () => {
 
         <div className={classes.col1}>
           <div className={classes.posterWrapper}>
-            <img className={classes.eventPoster} src={image} alt={name} />
+            <img className={classes.eventPoster} src={image} alt={name} loading="lazy" decoding="async" />
           </div>
           {/* Rulebook Download Button */}
           {rulebookLink && (
