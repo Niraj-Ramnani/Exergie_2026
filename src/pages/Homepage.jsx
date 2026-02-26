@@ -5,6 +5,7 @@ import Contact from "../components/Contact/Contact";
 import Hero from "../components/Hero/Hero";
 import MainEvents from "../components/MainEvents/MainEvents";
 import SingleEventPage from "../components/SingleEventPage/SingleEventPage";
+import OrganizerCards from "../components/OrganizerCards/OrganizerCards";
 import ReactGA from "react-ga";
 
 const Homepage = () => {
@@ -22,6 +23,7 @@ const Homepage = () => {
         <MainEvents />
       </div>
       <Contact />
+      <OrganizerCards />
       {eventId && <SingleEventPage />}
     </>
   );

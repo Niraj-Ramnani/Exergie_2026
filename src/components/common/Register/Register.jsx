@@ -232,6 +232,8 @@ const Register = () => {
   const isFormValid = formData.fullName && formData.email && formData.mobile.length === 10 && formData.college && formData.year && formData.branch && formData.utr;
   const canProceed = isFormValid && screenshotFile !== null;
 
+  const hasCCL = cart.some(event => event.name === 'Campus Combat League');
+
   const yearOptions = [
     { value: '1st Year', label: '1st Year' },
     { value: '2nd Year', label: '2nd Year' },
@@ -338,6 +340,23 @@ const Register = () => {
             </div>
           ))}
         </div>
+
+        {hasCCL && (
+          <div className={classes.cclAlertBox} style={{ background: 'rgba(255, 77, 109, 0.1)', border: '1px solid #ff4d6d', borderRadius: '12px', padding: '16px', marginTop: '16px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            <h4 style={{ color: '#ff4d6d', fontSize: '16px', fontWeight: 'bold' }}>⚠️ Mandatory for Campus Combat League</h4>
+            <p style={{ fontSize: '14px', color: '#e2e6f2', lineHeight: '1.4' }}>
+              Since you have selected the Campus Combat League (Esports), you <strong>MUST</strong> fill out this Google Form with the in-game UIDs of all your team members to complete your registration.
+            </p>
+            <a
+              href="https://forms.gle/NjnpyH3GQZh1PXvg9"
+              target="_blank"
+              rel="noreferrer noopener"
+              style={{ color: '#fff', background: '#ff4d6d', padding: '10px 16px', borderRadius: '6px', textAlign: 'center', fontWeight: 'bold', textDecoration: 'none', marginTop: '4px', width: 'fit-content' }}
+            >
+              Fill UID Form Here &rarr;
+            </a>
+          </div>
+        )}
 
         <div className={classes.totalContainer} style={{ marginTop: '20px' }}>
           <span className={classes.totalLabel}>Grand Total:</span>

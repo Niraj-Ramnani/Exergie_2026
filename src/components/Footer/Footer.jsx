@@ -29,8 +29,7 @@ const Footer = () => {
             </div>
           </div>
           <p className={classes.footer_sambhav_description}>
-            EXERGIE '26 is One of the Largest Technical festival of Jaipur. Let&apos;s
-            make a Tech move.
+            Intercollege The Annual Techno • Cultural Fest
           </p>
         </div>
         <div className={classes.footer_first}>

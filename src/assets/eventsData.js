@@ -22,7 +22,7 @@
 // import SupercarShow from "./Events/SupercarShow.png";
 // import TremblingTower from "./Events/TremblingTower.png";
 import cipherImage from "./club posters/cipher premier league.png";
-import esportsImage from "./club posters/Arya esports club.jpeg";
+import esportsImage from "./club posters/campuscombat.png";
 import momentGridImage from "./club posters/momentgrid.png";
 import aquaThrustImage from "./club posters/Aqua Thrust.jpg";
 import ittefaqImage from "./club posters/ITTEFAQ.jpeg";
@@ -32,7 +32,7 @@ import reelRumbleImage from "./club posters/reelrumble.png";
 import robowarImage from "./club posters/robowar.png";
 import robosoccerImage from "./club posters/RoboSoccer Poster.png";
 import jamImage from "./club posters/jam.png";
-import musicManiaImage from "./club posters/Muiscmania.png";
+import musicManiaImage from "./club posters/musicmania.png";
 import gyrationImage from "./club posters/gyration.jpeg";
 import donDeModeImage from "./club posters/dondemode.png";
 import blindCodingImage from "./club posters/blindcoding.jpeg";
@@ -40,7 +40,8 @@ import reverseCodingImage from "./club posters/rversecoding.jpeg";
 import cssBattleImage from "./club posters/cssbattle.jpeg";
 import buildWithoutCodeImage from "./club posters/buildwithoutcode.jpeg";
 import confernoImage from "./club posters/conferno.png";
-// import SpinningRival from "./Events/SpinningRival.png";
+import squidGameImage from "./club posters/squidgame.png";
+import buildBlitzImage from "./club posters/buildblitz.png";
 // import quiz from "./Events/quiz.png";
 
 export const eventsData = [
@@ -75,7 +76,7 @@ export const eventsData = [
     price: 50,
     contactInfo: ["Ayushi Satpathy: 9870583055"],
     location: "Badminton Court",
-    date: "13th and 14th March 2026",
+    date: "13 March",
     note: [""],
     link: "#",
     rulebookLink: "https://drive.google.com/file/d/1dk1P7D9Z7hYd34KPqI2Kwnh_0H8lGPDz/view?usp=sharing",
@@ -83,7 +84,7 @@ export const eventsData = [
   {
     id: 3,
     image: musicManiaImage,
-    name: "Musi-Mania",
+    name: "Music Mania",
     description: "MUSIC MANIA (Antakshari) is a team-based musical competition organized by the Music Club that celebrates musical enthusiasm through structured singing rounds following the traditional Antakshari format.",
     rules: ["To be announced"],
     prizes: ["Exciting Prizes"],
@@ -93,7 +94,7 @@ export const eventsData = [
     price: 200,
     contactInfo: ["Ayushi Satpathy: 9870583055"],
     location: "Badminton Court",
-    date: "13th and 14th March 2026",
+    date: "13 March",
     note: [""],
     link: "#",
     rulebookLink: "https://drive.google.com/file/d/1L8m9cuOwnmHEv71pWipGWrCcuWkXK6Qn/view?usp=sharing",
@@ -117,7 +118,7 @@ export const eventsData = [
     date: "13 March, 10:00 AM",
     note: [""],
     link: "#",
-    rulebookLink: "https://drive.google.com/file/d/1lXFlLy3AmJmqnSLip745zFKVaI8C7Vqc/view?usp=sharing",
+    rulebookLink: "https://drive.google.com/file/d/15tOVeMYYy8ywV5pIH7CMQv1Bvr8xRrZz/view?usp=sharing",
   },
   {
     id: 5,
@@ -189,7 +190,7 @@ export const eventsData = [
       "Trophy to the top 3"
     ],
     type: "team_fixed",
-    minMembers: 1,
+    minMembers: 3,
     maxMembers: 5,
     price: 200,
     contactInfo: [
@@ -282,7 +283,7 @@ export const eventsData = [
     date: "13 March, 10:30 AM",
     note: [""],
     link: "#",
-    rulebookLink: "https://drive.google.com/file/d/1YnFrqM4Fyxgj9YIvrrtoh-KVH4Wggqbx/view?usp=sharing",
+    rulebookLink: "https://drive.google.com/file/d/1hdtAxyjdEbO3AYhDKtDXZC77G8tMxzJC/view?usp=sharing",
   },
   {
     id: 13,
@@ -303,7 +304,7 @@ export const eventsData = [
     date: "13 March, 5:00 PM",
     note: [""],
     link: "#",
-    rulebookLink: "https://drive.google.com/file/d/1jHnquhnqyy0tAofrd6fE8jzfUuyvo59n/view?usp=sharing",
+    rulebookLink: "https://drive.google.com/file/d/136MQrdTVuIJAACyoRROzoP_0E51HU7o9/view?usp=sharing",
   },
   {
     id: 14,
@@ -406,5 +407,45 @@ export const eventsData = [
     note: [""],
     link: "https://forms.gle/J8MUEvjCMTGM6tEK9",
     rulebookLink: "https://drive.google.com/file/d/104ajYCfdHpg-Atn3EbHEt9A4qu74rsBQ/view?usp=sharing",
+  },
+  {
+    id: 20,
+    image: squidGameImage,
+    name: "Arya Exergie Squid Game",
+    description: "Arya Exergie presents Squid Game: The Aceit Challenge, an adrenaline-filled campus event inspired by thrilling survival style games. Get ready to test your speed, focus, and teamwork in exciting rounds like Red Light Green Light, Sack Race, and Musical Chairs, along with many more surprise games. Designed to bring fun competition and high energy vibes, this event promises an unforgettable experience for all participants. With a registration fee of just ₹30, everyone gets a chance to compete and win cool prizes and mementos. Gather your friends, step into the challenge, and prove your skills at Arya College of Engineering and IT!",
+    rules: ["To be announced"],
+    prizes: [
+      "Interesting cash prizes",
+      "Certifications"
+    ],
+    type: "individual",
+    price: 30,
+    contactInfo: ["Rishi Joshi: 8441000770"],
+    location: "Main Ground",
+    date: "13 March, whole day",
+    note: [""],
+    link: "#",
+    rulebookLink: "https://drive.google.com/drive/folders/1JKGDhncn2cGnpopvhY5Xoaso9XDuOxfm?usp=sharing",
+  },
+  {
+    id: 21,
+    image: buildBlitzImage,
+    name: "Build Blitz",
+    description: "Build Blitz is a time-bound innovation competition where participants are given a real-world problem statement and must design and develop a functional IoT prototype within the specified duration. In addition, participants must create a creative meme highlighting potential real-world failure scenarios to demonstrate technical understanding with a touch of humour.",
+    rules: ["To be announced"],
+    prizes: [
+      "Interesting cash prizes",
+      "Certifications"
+    ],
+    type: "team_fixed",
+    minMembers: 1,
+    maxMembers: 4,
+    price: 200,
+    contactInfo: ["Anshula: 7339808765"],
+    location: "To be declared",
+    date: "13 March",
+    note: [""],
+    link: "#",
+    rulebookLink: "https://drive.google.com/file/d/1w_r6Leib2Gd4gs5dg0qo4LvRThYGt3tc/view?usp=sharing",
   }
 ];

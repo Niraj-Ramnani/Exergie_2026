@@ -1,7 +1,6 @@
 // import Button from "../common/Button/Button";
 import classes from "./About.module.css";
 import about from "./about.svg";
-import OrganizerCards from "../OrganizerCards/OrganizerCards";
 import PastGlimpse from "../PastGlimpse/PastGlimpse";
 
 const About = () => {
@@ -31,7 +30,6 @@ const About = () => {
         </div>
         <PastGlimpse />
       </section>
-      <OrganizerCards />
     </>
   );
 };

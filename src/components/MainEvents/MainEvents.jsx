@@ -5,6 +5,7 @@ import classes from "./MainEvents.module.css";
 // import Swup from "swup";
 import { eventsData } from "../../assets/eventsData";
 import ReactGA from "react-ga";
+import SpecialEvents from "../SpecialEvents/SpecialEvents";
 
 const MainEvents = () => {
   const cipherEvent = eventsData.find(e => e.id === 1);
@@ -29,6 +30,8 @@ const MainEvents = () => {
         <h1 className={classes.heading}>Events</h1>
         <img src="x" alt="" />
 
+        <SpecialEvents />
+
         {cipherEvent && (
           <div className={classes.cipher_section}>
             <h2 className={classes.cipher_main_heading}>Cipher Premier League</h2>
@@ -43,7 +46,6 @@ const MainEvents = () => {
             </div>
           </div>
         )}
-
         <div className={classes.events_container}>
           {otherEvents.map((eventData, i) => {
             return <EventCard eventData={eventData} key={i} />;
