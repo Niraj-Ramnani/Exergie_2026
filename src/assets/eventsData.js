@@ -30,10 +30,10 @@ import alpanaImage from "./club posters/alpana.jpeg";
 import innoCanvasImage from "./club posters/inocanvas.jpeg";
 import reelRumbleImage from "./club posters/reelrumble.png";
 import robowarImage from "./club posters/robowar.png";
-import robosoccerImage from "./club posters/RoboSoccer Poster.png";
+import robosoccerImage from "./club posters/robosoccer.png";
 import jamImage from "./club posters/jam.png";
 import musicManiaImage from "./club posters/musicmania.png";
-import gyrationImage from "./club posters/gyration.jpeg";
+import gyrationImage from "./club posters/gyration.png";
 import donDeModeImage from "./club posters/dondemode.png";
 import blindCodingImage from "./club posters/blindcoding.jpeg";
 import reverseCodingImage from "./club posters/reversecoding.png";
@@ -42,6 +42,9 @@ import buildWithoutCodeImage from "./club posters/buildwithoutcode.jpeg";
 import confernoImage from "./club posters/confero.jpeg";
 import squidGameImage from "./club posters/squidgame.png";
 import buildBlitzImage from "./club posters/buildblitz.png";
+import hackAryaverseImg from "./specialevents/hackaryaverse.png";
+import capitalArenaImg from "./specialevents/capitalarena.png";
+import projectathonImg from "./specialevents/projectathon.png";
 // import quiz from "./Events/quiz.png";
 
 export const eventsData = [
@@ -447,5 +450,58 @@ export const eventsData = [
     note: [""],
     link: "#",
     rulebookLink: "https://drive.google.com/file/d/1w_r6Leib2Gd4gs5dg0qo4LvRThYGt3tc/view?usp=sharing",
+  },
+  {
+    id: 22,
+    image: hackAryaverseImg,
+    name: "Hack AryaVerse 2.0",
+    description: "Hack AryaVerse 2.0 is a 24-hour hackathon designed to bring together the brightest minds to build innovative solutions for real-world problems. Whether you're a coder, designer, or problem solver, this is your chance to showcase your skills and win amazing prizes.",
+    rules: ["To be announced"],
+    prizes: ["Exciting Prizes", "Certificates", "Merchandise"],
+    type: "team_fixed",
+    minMembers: 2,
+    maxMembers: 4,
+    price: 0,
+    contactInfo: ["Niraj Ramnani: 7339915052"],
+    location: "Arya Main Campus",
+    date: "14th - 15th March 2025",
+    link: "https://linktr.ee/HackAryaVerse_2.0",
+    isSpecial: true,
+    directLink: true,
+  },
+  {
+    id: 23,
+    image: capitalArenaImg,
+    name: "Capital Arena 2.0",
+    description: "Season 2 of Capital Arena brings you the ultimate pitching platform. Pitch bold, get judged, and get funded. A premier business and startup pitch event for aspiring entrepreneurs.",
+    rules: ["To be announced"],
+    prizes: ["Funding Opportunities", "Mentorship", "Trophy"],
+    type: "individual",
+    price: 0,
+    contactInfo: ["Vishvesh Soni: 9664275136"],
+    location: "Arya Main Campus",
+    date: "March 2025",
+    link: "https://unstop.com/competitions/capital-arena-season-2-arya-college-of-engineering-and-information-technology-aceit-jaipur-rajasthan-1648863?lb=DoaYWVzM&utm_medium=Share&utm_source=dwbcplje60572&utm_campaign=Competitions",
+    isSpecial: true,
+    directLink: true,
+  },
+  {
+    id: 24,
+    image: projectathonImg,
+    name: "Projectathon 2.0",
+    description: "Projectathon 2.0 is a technical innovation event designed to promote creativity, enhance technical skills, and encourage real-world industrial problem-solving in the field of automation and smart technologies. The event provides a dynamic platform for students to transform their ideas into practical, working solutions aligned with modern industrial needs.",
+    rules: ["To be announced"],
+    prizes: ["Interesting cash prizes", "certifications"],
+    type: "team",
+    minMembers: 1,
+    maxMembers: 4,
+    price: 200,
+    contactInfo: ["Abhinav Singh Chandel: 9680776035"],
+    location: "To be declared",
+    date: "14 March",
+    link: "https://forms.gle/H6NQ5g94ELvqfswGA",
+    rulebookLink: "https://drive.google.com/file/d/1UZXxSBJPMIpD16b-JWGnKl-DhNjTGvxM/view?usp=sharing",
+    isSpecial: true,
   }
 ];
+

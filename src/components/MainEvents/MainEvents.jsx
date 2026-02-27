@@ -17,7 +17,8 @@ const MainEvents = () => {
   let culturalEvents = eventsData.filter(e =>
     !technicalEventIds.includes(e.id) &&
     !funEventIds.includes(e.id) &&
-    e.id !== 1
+    e.id !== 1 &&
+    !e.isSpecial
   );
 
   // Sort Cultural Events to prioritize Gyration (9) and Don-De-Mode (10)

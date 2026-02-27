@@ -258,6 +258,29 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+.registerBtn {
+  background: linear-gradient(90deg, #fd4f8b, #0263ad);
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.6rem;
+  font-weight: 700;
+  padding: 12px 30px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.registerBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(253, 79, 139, 0.5);
+}
+
 .cartIcon {
   font-size: 1.8rem;
 }

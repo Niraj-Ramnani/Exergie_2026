@@ -48,6 +48,7 @@ const SingleEventPage = () => {
     onSpot,
     disqualification,
     rulebookLink, // Destructuring rulebookLink
+    isSpecial,
   } = requiredEvent;
 
   return (
@@ -91,7 +92,7 @@ const SingleEventPage = () => {
             <div className={classes.sectionWrap}>
               <h2 className={classes.heading}>Team/Individual</h2>
               <p className={classes.content}>
-                {type === 'team_fixed' ? `Team (${minMembers}-${maxMembers} members)` : 'Individual'}
+                {type === 'team_fixed' || type === 'team' ? `Team (${minMembers}-${maxMembers} members)` : 'Individual'}
               </p>
             </div>
             <div className={classes.sectionWrap}>
@@ -145,7 +146,20 @@ const SingleEventPage = () => {
 
 
           <div className={classes.actionFooter}>
-            {link !== "" ? (
+            {isSpecial ? (
+              link !== "#" && link !== "" ? (
+                <a
+                  href={link}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className={classes.registerBtn}
+                >
+                  Register Now
+                </a>
+              ) : (
+                <p className={classes.soon}>Registration will be open soon.</p>
+              )
+            ) : link !== "" ? (
               <button
                 className={`${classes.addToCartBtn} ${isItemInCart(+eventId) ? classes.inCartBtn : ''}`}
                 onClick={() => !isItemInCart(+eventId) && addToCart(requiredEvent)}
