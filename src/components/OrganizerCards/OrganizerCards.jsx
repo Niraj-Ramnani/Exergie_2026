@@ -1,7 +1,6 @@
 import React from "react";
 import classes from "./OrganizerCards.module.css";
 
-import collegeImg from "../../assets/club logos/Arya College of Engineering & IT Jaipur.jpg";
 import cipherImg from "../../assets/club logos/Arya Cipher Coding Club.jpg";
 import musicImg from "../../assets/club logos/Arya Music Club.jpg";
 import danceImg from "../../assets/club logos/Arya Dance Club.jpg";
