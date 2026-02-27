@@ -41,23 +41,12 @@ function doPost(e) {
     const randomNum = Math.floor(1000 + Math.random() * 9000); 
     const registrationId = "EXE2026-" + randomNum;
     
-    // 2. Upload file to Google Drive
-    let fileUrl = "No File";
-    if (screenshotBlob && typeof screenshotBlob !== 'string') {
-      const folder = DriveApp.getFolderById(FOLDER_ID);
-      const timestamp = new Date().getTime();
-      const safeName = fullName.replace(/[^a-zA-Z0-9]/g, "_");
-      
-      const fileName = `${safeName}_${timestamp}.jpg`;
-      
-      // screenshotBlob is an object with getBlob() if sent via HTML form, but via fetch it can be directly a blob.
-      const file = folder.createFile(screenshotBlob);
-      file.setName(fileName);
-      
-      // Make file accessible (optional, depends on your needs)
-      file.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
-      fileUrl = file.getUrl();
-    }
+    // ==============================
+    // 📸 SCREENSHOT UPLOAD (Cloudinary Integration)
+    // ==============================
+    // The React frontend now handles the heavy image upload via Cloudinary.
+    // It passes us a tiny, fast 'fileUrl' string instead of a massive Base64 file.
+    let fileUrl = e.parameter.fileUrl || "No File Provided";
 
     // 3. Save to Google Sheets
     const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_NAME);
@@ -80,25 +69,26 @@ function doPost(e) {
       new Date().toLocaleString()
     ]);
 
-    // 4. Return Success JSON
-    const response = {
+    return jsonResponse({
       status: "success",
-      registrationId: registrationId,
-      fileUrl: fileUrl
-    };
-    
-    return ContentService.createTextOutput(JSON.stringify(response))
-      .setMimeType(ContentService.MimeType.JSON);
-      
+      registrationId: registrationId
+    });
+
   } catch (error) {
-    // Return Error JSON
-    const response = {
+    return jsonResponse({
       status: "error",
       message: error.toString()
-    };
-    return ContentService.createTextOutput(JSON.stringify(response))
-      .setMimeType(ContentService.MimeType.JSON);
+    });
   }
+}
+
+// ==============================
+// JSON HELPER
+// ==============================
+function jsonResponse(obj) {
+  return ContentService
+    .createTextOutput(JSON.stringify(obj))
+    .setMimeType(ContentService.MimeType.JSON);
 }
 
 // For testing browser GET requests

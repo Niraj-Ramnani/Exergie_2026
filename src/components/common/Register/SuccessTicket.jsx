@@ -36,12 +36,28 @@ const SuccessTicket = ({ data }) => {
 
             const imgData = canvas.toDataURL('image/jpeg', 1.0);
 
-            // Calculate dimensions
+            // Calculate dimensions for A4 page
             const pdf = new jsPDF('p', 'mm', 'a4');
             const pdfWidth = pdf.internal.pageSize.getWidth();
-            const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+            const pdfHeight = pdf.internal.pageSize.getHeight();
 
-            pdf.addImage(imgData, 'JPEG', 0, 0, pdfWidth, pdfHeight);
+            // Calculate how tall the canvas is when scaled to the PDF width
+            const imgHeight = (canvas.height * pdfWidth) / canvas.width;
+            let heightLeft = imgHeight;
+            let position = 0;
+
+            // Add first page
+            pdf.addImage(imgData, 'JPEG', 0, position, pdfWidth, imgHeight);
+            heightLeft -= pdfHeight;
+
+            // Loop to add new pages if the image is taller than one A4 page
+            while (heightLeft > 0) {
+                position = heightLeft - imgHeight; // Shift the image up for the next page
+                pdf.addPage();
+                pdf.addImage(imgData, 'JPEG', 0, position, pdfWidth, imgHeight);
+                heightLeft -= pdfHeight;
+            }
+
             pdf.save(`Exergie2026_Tickets_${registrationId}.pdf`);
 
         } catch (error) {

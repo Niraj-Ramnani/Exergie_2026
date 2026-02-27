@@ -23,14 +23,14 @@ export const CartProvider = ({ children }) => {
         const exists = cart.find((item) => item.id === event.id);
         if (exists) {
             toast.error(`${event.name} is already in the cart!`, {
-                duration: 4000,
+                duration: 2000,
                 style: {
                     background: '#23253b',
                     color: '#fff',
                     border: '1px solid rgba(255, 77, 77, 0.4)',
-                    fontSize: '16px',
-                    padding: '16px 20px',
-                    minWidth: '300px'
+                    fontSize: '14px',
+                    padding: '12px 16px',
+                    maxWidth: '85vw'
                 },
                 iconTheme: {
                     primary: '#ff4d4d',
@@ -42,14 +42,14 @@ export const CartProvider = ({ children }) => {
 
         setCart([...cart, event]);
         toast.success(`${event.name} added! Go to cart to checkout →`, {
-            duration: 5000,
+            duration: 2500,
             style: {
                 background: '#23253b',
                 color: '#fff',
                 border: '1px solid rgba(123, 97, 255, 0.4)',
-                fontSize: '16px',
-                padding: '16px 20px',
-                minWidth: '300px'
+                fontSize: '14px',
+                padding: '12px 16px',
+                maxWidth: '85vw'
             },
             iconTheme: {
                 primary: '#7b61ff',

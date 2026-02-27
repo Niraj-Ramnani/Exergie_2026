@@ -8,6 +8,7 @@ import SuccessTicket from './SuccessTicket';
 import classes from './Register.module.css';
 import { useCart } from '../../../context/CartContext';
 import { useNavigate } from 'react-router-dom';
+import imageCompression from 'browser-image-compression';
 
 // Apps Script Web App URL
 const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzpGW-IZQN2WRG1aTYau1UEaK4NMftyl9xStrn2TEY_LE1XhaCUEsnj-IOtKHj5_uXL9w/exec";
@@ -33,6 +34,7 @@ const Register = () => {
   const [submitError, setSubmitError] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [registrationData, setRegistrationData] = useState(null);
+  const [loadingStep, setLoadingStep] = useState("");
 
   // Initialize team members state based on cart
   useEffect(() => {
@@ -157,6 +159,7 @@ const Register = () => {
     }
 
     setIsSubmitting(true);
+    setLoadingStep("Compressing Screenshot...");
 
     try {
       const data = new FormData();
@@ -182,22 +185,43 @@ const Register = () => {
       data.append("totalAmount", totalAmount);
 
       if (screenshotFile) {
-        const convertToBase64 = (file) => {
-          return new Promise((resolve, reject) => {
-            const reader = new FileReader();
-            reader.readAsDataURL(file);
-            reader.onload = () => resolve(reader.result.split(',')[1]);
-            reader.onerror = error => reject(error);
-          });
-        };
 
-        const base64String = await convertToBase64(screenshotFile);
-        data.append("screenshotBase64", base64String);
-        data.append("screenshotMimeType", screenshotFile.type);
-        data.append("screenshotName", screenshotFile.name);
+        // 0. Compress Image before Upload
+        const options = {
+          maxSizeMB: 0.3,
+          maxWidthOrHeight: 1200,
+          useWebWorker: true
+        };
+        const compressedFile = await imageCompression(screenshotFile, options);
+
+        setLoadingStep("Uploading Securely...");
+
+        // 1. Upload directly to Cloudinary
+        const cloudinaryData = new FormData();
+        // Crucial Fix: Explicitly pass the filename as the 3rd argument for Blobs
+        cloudinaryData.append("file", compressedFile, screenshotFile.name || "screenshot.jpg");
+        cloudinaryData.append("upload_preset", "exergie_tickets");
+        cloudinaryData.append("cloud_name", "dykqdgzhy");
+
+        const cloudinaryRes = await fetch("https://api.cloudinary.com/v1_1/dykqdgzhy/image/upload", {
+          method: "POST",
+          body: cloudinaryData,
+        });
+
+        const cloudinaryJson = await cloudinaryRes.json();
+
+        if (!cloudinaryJson.secure_url) {
+          throw new Error("Failed to upload image to Cloudinary.");
+        }
+
+        // 2. Pass the fast URL to Google Apps Script instead of heavy Base64
+        data.append("fileUrl", cloudinaryJson.secure_url);
+
       } else {
         throw new Error("Screenshot file is missing.");
       }
+
+      setLoadingStep("Generating Exergie Tickets...");
 
       const response = await fetch(APPS_SCRIPT_URL, {
         method: "POST",
@@ -228,6 +252,7 @@ const Register = () => {
       setSubmitError(error.message || "Failed to submit registration. Please try again.");
     } finally {
       setIsSubmitting(false);
+      setLoadingStep("");
     }
   };
 
@@ -372,13 +397,22 @@ const Register = () => {
 
         {submitError && <div className={classes.eventErrorMessage}>{submitError}</div>}
 
-        <button type="submit" className={`${classes.submitButton} ${!canProceed || isSubmitting ? classes.disabledBtn : ''}`} disabled={!canProceed || isSubmitting}>
-          {isSubmitting ? (
-            <span className={classes.spinnerContainer}><span className={classes.spinner}></span> Processing...</span>
-          ) : (
+        {isSubmitting ? (
+          <div className={classes.processingMessageContainer}>
+            <span className={classes.spinnerContainer}>
+              <span className={classes.spinner}></span>
+            </span>
+            <p className={classes.processingMessageText}>
+              Hold on, your {loadingStep.includes("Compressing") ? "screenshot is compressing..." :
+                loadingStep.includes("Uploading") ? "receipt is uploading securely..." :
+                  "ticket is being generated..."}
+            </p>
+          </div>
+        ) : (
+          <button type="submit" className={`${classes.submitButton} ${!canProceed ? classes.disabledBtn : ''}`} disabled={!canProceed}>
             <>Submit Registration <span className={classes.arrow}>&rarr;</span></>
-          )}
-        </button>
+          </button>
+        )}
       </form>
     </FormContainer>
   );

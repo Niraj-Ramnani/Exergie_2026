@@ -11,7 +11,14 @@ const MainEvents = () => {
   const technicalEventIds = [16, 17, 18, 19, 12, 13, 21];
   const technicalEvents = technicalEventIds.map(id => eventsData.find(e => e.id === id)).filter(Boolean);
 
-  let culturalEvents = eventsData.filter(e => !technicalEventIds.includes(e.id) && e.id !== 1);
+  const funEventIds = [6, 8, 11, 14, 15, 20];
+  const funEvents = funEventIds.map(id => eventsData.find(e => e.id === id)).filter(Boolean);
+
+  let culturalEvents = eventsData.filter(e =>
+    !technicalEventIds.includes(e.id) &&
+    !funEventIds.includes(e.id) &&
+    e.id !== 1
+  );
 
   // Sort Cultural Events to prioritize Gyration (9) and Don-De-Mode (10)
   culturalEvents.sort((a, b) => {
@@ -67,6 +74,18 @@ const MainEvents = () => {
           <div className={classes.events_container}>
             {culturalEvents.map((eventData, idx) => (
               <EventCard eventData={eventData} key={`culture-${idx}`} />
+            ))}
+          </div>
+        </div>
+
+        <div className={classes.category_section}>
+          <h2 className={classes.category_heading}>Fun Events</h2>
+          <h3 className={classes.category_subheading}>
+            Take a break, chill out, and enjoy some exciting campus activities!
+          </h3>
+          <div className={classes.events_container}>
+            {funEvents.map((eventData, idx) => (
+              <EventCard eventData={eventData} key={`fun-${idx}`} />
             ))}
           </div>
         </div>
