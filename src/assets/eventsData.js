@@ -500,7 +500,7 @@ export const eventsData = [
     location: "To be declared",
     date: "14 March",
     link: "https://forms.gle/H6NQ5g94ELvqfswGA",
-    rulebookLink: "https://drive.google.com/file/d/1UZXxSBJPMIpD16b-JWGnKl-DhNjTGvxM/view?usp=sharing",
+    rulebookLink: "https://drive.google.com/file/d/1V39FmRUFgyJevEo-suPToGlEcQtAtM7w/view?usp=sharing",
     isSpecial: true,
   }
 ];
