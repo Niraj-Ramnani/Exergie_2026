@@ -73,12 +73,6 @@ const projectathonLeads = [
 const Contact = () => {
   return (
     <section id="contact" className={classes.contact}>
-      <div className={classes.contactBox}>
-        <div className={classes.contentBox}>
-          <Faq />
-        </div>
-      </div>
-
       <div className={classes.leadsSection}>
         <div className={classes.headingBox}>
           <h2 className={classes.heading}>Contact Us</h2>
@@ -164,6 +158,12 @@ const Contact = () => {
               ))}
             </div>
           </div>
+        </div>
+      </div>
+
+      <div className={classes.contactBox}>
+        <div className={classes.contentBox}>
+          <Faq />
         </div>
       </div>
     </section>

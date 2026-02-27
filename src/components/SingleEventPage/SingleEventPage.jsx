@@ -52,11 +52,12 @@ const SingleEventPage = () => {
 
   return (
     <div className={classes.singleEvent}>
+      {/* Close Button moved outside the scrolling card */}
+      <button className={classes.closeBtn} onClick={() => navigate("/")}>
+        <FontAwesomeIcon icon={faXmark} />
+      </button>
+
       <div className={classes.singleEventCard}>
-        {/* Close Button */}
-        <button className={classes.closeBtn} onClick={() => navigate("/")}>
-          <FontAwesomeIcon icon={faXmark} />
-        </button>
 
         <div className={classes.col1}>
           <div className={classes.posterWrapper}>

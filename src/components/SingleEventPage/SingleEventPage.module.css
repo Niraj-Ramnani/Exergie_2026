@@ -43,9 +43,9 @@
 }
 
 .closeBtn {
-  position: absolute;
-  top: 20px;
-  right: 20px;
+  position: fixed;
+  top: 30px;
+  right: 30px;
   background: rgba(255, 255, 255, 0.15);
   border: 2px solid rgba(255, 255, 255, 0.3);
   color: #fff;
@@ -57,7 +57,7 @@
   align-items: center;
   font-size: 1.6rem;
   cursor: pointer;
-  z-index: 10;
+  z-index: 10005;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6), inset 0 0 10px rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -282,17 +282,33 @@
 
 @media screen and (max-width: 768px) {
   .singleEvent {
-    padding: 90px 15px 30px;
+    padding: 0;
   }
 
   .singleEventCard {
     flex-direction: column;
-    max-height: 85vh;
+    max-height: 100vh;
+    height: 100vh;
+    border-radius: 0;
+    width: 100%;
+    overflow-y: auto;
+  }
+
+  .closeBtn {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    font-size: 1.4rem;
+    background: rgba(15, 15, 20, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    z-index: 10001;
   }
 
   .col1 {
     width: 100%;
-    padding: 20px;
+    padding: 60px 20px 20px;
     border-right: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   }
@@ -306,11 +322,6 @@
     padding: 25px 20px;
     max-height: none;
     overflow-y: visible;
-  }
-
-  /* On mobile overflow the whole card not just the col2 */
-  .singleEventCard {
-    overflow-y: auto;
   }
 
   .eventHeading {

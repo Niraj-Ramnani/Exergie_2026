@@ -156,6 +156,23 @@ const Footer = () => {
               <p className={classes.mail}>info@aryacollege.in</p>
             </div>
           </div>
+          <div className={classes.footer_contact}>
+            <div>
+              <img
+                className={classes.footer_contact_image}
+                src="https://img.icons8.com/ios-filled/50/ffffff/user.png"
+                alt=""
+              />
+            </div>
+            <div>
+              <p style={{ fontSize: '14px', lineHeight: '1.4' }}>
+                For website related queries contact <br />
+                <a href="tel:7339915052" className={classes.footer_a_link}>
+                  Niraj Ramnani : 7339915052
+                </a>
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 

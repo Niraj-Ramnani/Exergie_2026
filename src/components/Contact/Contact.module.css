@@ -128,12 +128,18 @@
 
 .categoryHeading {
   color: #a88bff;
-  font-size: 3.2rem;
+  font-size: 2.8rem;
   text-align: center;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 1.5px;
-  margin-bottom: 3.5rem;
+  margin-bottom: 2.5rem;
   text-transform: uppercase;
+}
+
+.combinedTertiarySection .categoryHeading {
+  font-size: 2rem;
+  letter-spacing: 1px;
+  margin-bottom: 2rem;
 }
 
 .leadsGrid {
@@ -163,7 +169,7 @@
 .combinedTertiarySection {
   display: flex;
   justify-content: center;
-  gap: 6rem;
+  gap: 8rem;
   flex-wrap: wrap;
   width: 100%;
 }

@@ -104,6 +104,32 @@
     letter-spacing: 0.3px;
 }
 
+.moreIcon {
+    font-size: 2.5rem;
+    color: #fff;
+    background: linear-gradient(135deg, #0263ad, #fd4f8b);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+    box-shadow: 0 0 15px rgba(253, 79, 139, 0.3);
+}
+
+.moreCard {
+    text-decoration: none;
+}
+
+.moreTitle {
+    background: linear-gradient(90deg, #fff, #fd4f8b);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+}
+
 @media screen and (max-width: 768px) {
     .title {
         font-size: 3rem;

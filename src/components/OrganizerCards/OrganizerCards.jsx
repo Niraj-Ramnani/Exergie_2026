@@ -10,7 +10,6 @@ import photoImg from "../../assets/club logos/Arya PhotoSphere Club.jpg";
 import roboticsImg from "../../assets/club logos/Arya Robotics Club.jpg";
 
 const clubs = [
-    { name: "Arya College of Engineering & IT Jaipur", img: collegeImg },
     { name: "Arya Cipher Coding Club", img: cipherImg },
     { name: "Arya Music Club", img: musicImg },
     { name: "Arya Dance Club", img: danceImg },
@@ -36,6 +35,17 @@ const OrganizerCards = () => {
                         <p className={classes.name}>{club.name}</p>
                     </div>
                 ))}
+                <a
+                    href="https://www.aryacollege.in/arya-events/student-clubs"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`${classes.card} ${classes.moreCard}`}
+                >
+                    <div className={classes.moreIcon}>
+                        <span>+</span>
+                    </div>
+                    <p className={`${classes.name} ${classes.moreTitle}`}>MANY MORE</p>
+                </a>
             </div>
         </section>
     );
