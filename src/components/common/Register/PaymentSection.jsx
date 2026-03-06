@@ -3,9 +3,17 @@ import classes from './Register.module.css';
 import qrCodeImage from '../../../assets/qrcode/qrcode.png';
 
 const PaymentSection = ({ totalAmount }) => {
-    const upiId = "ARYACOLLEGE@icici";
+    const upiId = "aryacollege@icici";
     const eventName = "Exergie 2026";
-    const upiLink = `upi://pay?pa=${upiId}&pn=${encodeURIComponent(eventName)}&am=${totalAmount}`;
+    const [copied, setCopied] = React.useState(false);
+
+    const handleCopy = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        navigator.clipboard.writeText(upiId);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+    };
 
     return (
         <div className={classes.paymentWrapper}>
@@ -34,12 +42,16 @@ const PaymentSection = ({ totalAmount }) => {
             <div className={classes.orDivider}>OR</div>
 
             <div className={classes.upiButtonContainer}>
-                <a
-                    href={upiLink}
+                <button
+                    type="button"
+                    onClick={handleCopy}
                     className={classes.upiButton}
                 >
-                    Pay Using UPI App
-                </a>
+                    {copied ? 'UPI ID Copied!' : 'Copy UPI ID'}
+                </button>
+                <p className={classes.payInstruction} style={{ marginTop: '10px' }}>
+                    Copy the UPI ID and pay ₹{totalAmount} in your UPI app.
+                </p>
             </div>
         </div>
     );
