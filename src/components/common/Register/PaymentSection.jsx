@@ -4,7 +4,6 @@ import qrCodeImage from '../../../assets/qrcode/qrcode.png';
 
 const PaymentSection = ({ totalAmount }) => {
     const upiId = "aryacollege@icici";
-    const eventName = "Exergie 2026";
     const [copied, setCopied] = React.useState(false);
 
     const handleCopy = (e) => {
