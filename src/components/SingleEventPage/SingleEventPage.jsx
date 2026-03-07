@@ -109,7 +109,7 @@ const SingleEventPage = () => {
                     className={classes.gyrationSelect}
                   >
                     <option value="10">Up to 10 Members - ₹1000</option>
-                    <option value="15">11-15 Members - ₹1500</option>
+                    <option value="20">11-20 Members - ₹1500</option>
                   </select>
                 </div>
               ) : (
@@ -189,10 +189,10 @@ const SingleEventPage = () => {
                       eventToAdd.price = 1000;
                       eventToAdd.name = "Gyration (1-10 Members)";
                       eventToAdd.maxMembers = 10;
-                    } else if (gyrationCategory === "15") {
+                    } else if (gyrationCategory === "20") {
                       eventToAdd.price = 1500;
-                      eventToAdd.name = "Gyration (11-15 Members)";
-                      eventToAdd.maxMembers = 15;
+                      eventToAdd.name = "Gyration (11-20 Members)";
+                      eventToAdd.maxMembers = 20;
                     }
                   }
 

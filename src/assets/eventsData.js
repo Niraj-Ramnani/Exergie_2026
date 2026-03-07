@@ -210,12 +210,12 @@ export const eventsData = [
     id: 9,
     image: gyrationImage,
     name: "Gyration",
-    description: "Are you ready to set the stage on fire? Gyration is the ultimate Dance Competition where teams will showcase their energy! Pricing: Teams with up to 10 members – ₹1000. Teams with 11–15 members – ₹1500.",
+    description: "Are you ready to set the stage on fire? Gyration is the ultimate Dance Competition where teams will showcase their energy! Pricing: Teams with up to 10 members – ₹1000. Teams with 11–20 members – ₹1500.",
     rules: ["To be announced"],
     prizes: ["Exciting Prizes"],
     type: "team_fixed",
     minMembers: 1, // Minimum 1 to allow UI to scale up dynamically
-    maxMembers: 15, // Max 15 per new rule
+    maxMembers: 20, // Max 20 per new rule
     price: 1000, // Base price for 1-10 members
     contactInfo: ["Tarangini: 9306905853"],
     location: "Arya Ground",
