@@ -10,6 +10,7 @@ const SingleEventPage = () => {
   const { eventId } = useParams();
   const navigate = useNavigate();
   const { addToCart, isItemInCart } = useCart();
+  const [gyrationCategory, setGyrationCategory] = React.useState("10"); // Default to 1-10 members
 
   useEffect(() => {
     // Lock background scrolling when modal opens
@@ -95,9 +96,25 @@ const SingleEventPage = () => {
                 {type === 'team_fixed' || type === 'team' ? `Team (${minMembers}-${maxMembers} members)` : 'Individual'}
               </p>
             </div>
+
             <div className={classes.sectionWrap}>
               <h2 className={classes.heading}>Fees</h2>
-              <p className={classes.content}>{price === 0 ? 'Free' : `₹${price}`}</p>
+
+              {/* Gyration custom pricing dropdown selector */}
+              {requiredEvent.id === 9 ? (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                  <select
+                    value={gyrationCategory}
+                    onChange={(e) => setGyrationCategory(e.target.value)}
+                    className={classes.gyrationSelect}
+                  >
+                    <option value="10">Up to 10 Members - ₹1000</option>
+                    <option value="15">11-15 Members - ₹1500</option>
+                  </select>
+                </div>
+              ) : (
+                <p className={classes.content}>{price === 0 ? 'Free' : `₹${price}`}</p>
+              )}
             </div>
           </div>
 
@@ -162,7 +179,25 @@ const SingleEventPage = () => {
             ) : link !== "" ? (
               <button
                 className={`${classes.addToCartBtn} ${isItemInCart(+eventId) ? classes.inCartBtn : ''}`}
-                onClick={() => !isItemInCart(+eventId) && addToCart(requiredEvent)}
+                onClick={() => {
+                  if (isItemInCart(+eventId)) return;
+
+                  // Handle Gyration's specific custom price pass-through
+                  let eventToAdd = { ...requiredEvent };
+                  if (requiredEvent.id === 9) {
+                    if (gyrationCategory === "10") {
+                      eventToAdd.price = 1000;
+                      eventToAdd.name = "Gyration (1-10 Members)";
+                      eventToAdd.maxMembers = 10;
+                    } else if (gyrationCategory === "15") {
+                      eventToAdd.price = 1500;
+                      eventToAdd.name = "Gyration (11-15 Members)";
+                      eventToAdd.maxMembers = 15;
+                    }
+                  }
+
+                  addToCart(eventToAdd);
+                }}
                 disabled={isItemInCart(+eventId)}
               >
                 <FontAwesomeIcon icon={faCartPlus} className={classes.cartIcon} />
