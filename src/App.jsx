@@ -92,9 +92,9 @@ const App = () => {
             position: 'relative',
             lineHeight: '1.5'
           }}>
-            ⚠️ <strong>Important Update:</strong> Due to uncertain conditions, Arya Exergie 2026 has been cancelled for now. <br />
-            However, <strong>Hack Arya Verse 2.0</strong> and <strong>Capital Arena Season 2</strong> will take place as scheduled on 14–15 March 2026.
-            The status of Projectathon 2.0 will be clarified soon.
+            ⚠️ <strong>Important Update:</strong> Due to uncertain conditions, Arya Exergie 2026 registrations have been temporarily put on hold. <br />
+            However, <strong>Hack Arya Verse 2.0</strong>, <strong>Capital Arena Season 2</strong>, and <strong>Projectathon 2.0</strong> will take place as scheduled from 13–15 March 2026.<br />
+            You can check the event schedules and visit their respective sections on the website for more details.
           </div>
           <Navbar />
           <React.Suspense fallback={<Loading />}>
