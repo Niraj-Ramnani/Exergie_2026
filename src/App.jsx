@@ -81,17 +81,21 @@ const App = () => {
         <Loading />
       ) : (
         <>
-          {/* <div
-        // id={swup}
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          flexDirection: "column",
-          width: "100%",
-          height: "auto",
-        }}
-      > */}
+          <div style={{
+            backgroundColor: '#ff4d4f',
+            color: 'white',
+            textAlign: 'center',
+            padding: '12px 20px',
+            fontSize: '15px',
+            fontWeight: '500',
+            zIndex: 9999,
+            position: 'relative',
+            lineHeight: '1.5'
+          }}>
+            ⚠️ <strong>Important Update:</strong> Due to uncertain conditions, Arya Exergie 2026 has been cancelled for now. <br />
+            However, <strong>Hack Arya Verse 2.0</strong> and <strong>Capital Arena Season 2</strong> will take place as scheduled on 14–15 March 2026.
+            The status of Projectathon 2.0 will be clarified soon.
+          </div>
           <Navbar />
           <React.Suspense fallback={<Loading />}>
             <Routes>
