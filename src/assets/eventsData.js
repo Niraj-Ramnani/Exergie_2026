@@ -157,7 +157,7 @@ export const eventsData = [
     price: 50,
     contactInfo: ["Awantika Jaiswal: 9871843402"],
     location: "Must be shot during events on 13th & 14th March",
-    date: "13 March, 9:00 AM",
+    date: "14 March, 9:00 AM",
     note: [""],
     link: "#",
     rulebookLink: "https://drive.google.com/file/d/1YnOW6iHO1VFfmGSgFiZcharerQZ28hh-/view?usp=sharing",
