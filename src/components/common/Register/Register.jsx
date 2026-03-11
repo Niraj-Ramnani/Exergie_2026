@@ -279,7 +279,7 @@ const Register = () => {
   // Prevent rendering if cart is empty and we haven't submitted
   if (cart.length === 0) return null;
 
-  const hasPausedEvents = cart.some(event => ![22, 23, 24].includes(event.id));
+  const hasPausedEvents = cart.some(event => ![6, 15, 22, 23, 24].includes(event.id));
 
   if (hasPausedEvents && !isSubmitted) {
     return (
@@ -288,7 +288,7 @@ const Register = () => {
           <h2 style={{ color: '#ff4d4f', marginBottom: '16px' }}>⚠️ Paused Events in Cart</h2>
           <p style={{ color: '#e2e6f2', marginBottom: '24px', lineHeight: '1.5' }}>
             Some events in your cart have been paused due to the cancellation of Exergie 2026.
-            Please clear your cart and only add active events (Hack Arya Verse 2.0, Capital Arena Season 2, Projectathon 2.0) to proceed with registration.
+            Please clear your cart and only add active events (Hack Arya Verse 2.0, Capital Arena Season 2, Projectathon 2.0, Reel Rumble, Moment Grid) to proceed with registration.
           </p>
           <button
             type="button"

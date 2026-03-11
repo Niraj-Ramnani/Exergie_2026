@@ -11,7 +11,7 @@ const MainEvents = () => {
   const technicalEventIds = [16, 17, 18, 19, 12, 13, 21];
   const technicalEvents = technicalEventIds.map(id => eventsData.find(e => e.id === id)).filter(Boolean);
 
-  const funEventIds = [6, 8, 11, 14, 15, 20];
+  const funEventIds = [8, 11, 14, 20];
   const funEvents = funEventIds.map(id => eventsData.find(e => e.id === id)).filter(Boolean);
 
   let culturalEvents = eventsData.filter(e =>

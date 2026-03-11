@@ -8,7 +8,7 @@ const EventCard = ({ eventData }) => {
 
   const CardContent = (
     <div className={classes.card} style={{ position: 'relative' }}>
-      {![22, 23, 24].includes(id) && (
+      {![6, 15, 22, 23, 24].includes(id) && (
         <div style={{
           position: 'absolute',
           top: '10px',

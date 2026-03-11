@@ -161,6 +161,7 @@ export const eventsData = [
     note: [""],
     link: "#",
     rulebookLink: "https://drive.google.com/file/d/1YnOW6iHO1VFfmGSgFiZcharerQZ28hh-/view?usp=sharing",
+    isSpecial: true,
   },
   {
     id: 7,
@@ -346,6 +347,7 @@ export const eventsData = [
     note: [""],
     link: "#",
     rulebookLink: "https://drive.google.com/file/d/1pqZxztj8n2BkMtiJJoJr4r7msCHhi5y0/view?usp=sharing",
+    isSpecial: true,
   },
   {
     id: 16,

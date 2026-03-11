@@ -163,12 +163,12 @@ const SingleEventPage = () => {
 
 
           <div className={classes.actionFooter}>
-            {![22, 23, 24].includes(requiredEvent.id) ? (
+            {![6, 15, 22, 23, 24].includes(requiredEvent.id) ? (
               <p className={classes.soon} style={{ color: '#ff4d4f', fontWeight: 'bold', fontSize: '15px' }}>
                 Registrations for this event are currently paused due to the latest announcement. Please check the official notice above.
               </p>
-            ) : isSpecial ? (
-              link !== "#" && link !== "" ? (
+            ) : (isSpecial && link !== "#") ? (
+              link !== "" ? (
                 <a
                   href={link}
                   target="_blank"
